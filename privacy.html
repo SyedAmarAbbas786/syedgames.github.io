@@ -6,37 +6,51 @@
     <title>Privacy Policy - SyedGames</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        .policy-hero {
+        .page-hero {
             text-align: center;
-            padding: 80px 20px 40px;
-            background: linear-gradient(135deg, #1a0000, #0a0000);
-            border-bottom: 3px solid #cc0000;
+            padding: 100px 20px 60px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.85), rgba(10,0,0,0.9)),
+                        url('https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1920&h=400&fit=crop&crop=center') center/cover no-repeat;
+            border-bottom: 3px solid rgba(255, 0, 0, 0.3);
         }
-        .policy-hero h1 {
-            font-size: 48px;
+        .page-hero h1 {
+            font-size: 52px;
+            font-weight: 900;
         }
-        .policy-hero h1 span {
-            color: #cc0000;
-            text-shadow: 0 0 30px rgba(204, 0, 0, 0.4);
+        .page-hero h1 span {
+            color: #ff0000;
+            text-shadow: 0 0 40px rgba(255, 0, 0, 0.3);
         }
-        .policy-hero p {
+        .page-hero p {
             color: #aaa;
             max-width: 600px;
             margin: 10px auto 0;
+            font-size: 18px;
         }
         .policy-content {
             max-width: 900px;
             margin: 0 auto;
             padding: 60px 40px;
         }
+        .policy-content .last-updated {
+            color: #666;
+            font-size: 14px;
+            font-style: italic;
+            margin-bottom: 30px;
+            padding: 10px 20px;
+            background: #0a0a0a;
+            border-radius: 8px;
+            display: inline-block;
+            border-left: 3px solid #ff0000;
+        }
         .policy-content h2 {
-            color: #cc0000;
+            color: #ff0000;
             margin: 40px 0 15px;
             font-size: 26px;
-            border-left: 4px solid #cc0000;
+            border-left: 4px solid #ff0000;
             padding-left: 15px;
         }
-        .policy-content h2:first-child {
+        .policy-content h2:first-of-type {
             margin-top: 0;
         }
         .policy-content p {
@@ -49,20 +63,36 @@
             padding-left: 20px;
             line-height: 2;
         }
-        .policy-content .last-updated {
-            color: #666;
-            font-size: 14px;
-            font-style: italic;
-            margin-bottom: 30px;
+        .policy-content ul li {
+            margin-bottom: 5px;
+        }
+        .policy-content .highlight-box {
+            background: linear-gradient(145deg, #0a0a0a, #000000);
+            padding: 25px 30px;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+        .policy-content .highlight-box p {
+            margin-bottom: 0;
+        }
+        @media (max-width: 768px) {
+            .page-hero h1 {
+                font-size: 36px;
+            }
+            .policy-content {
+                padding: 30px 20px;
+            }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">Syed<span>Games</span></div>
-        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-        <nav id="mainNav">
+        <div class="logo">
+            <a href="index.html">Syed<span>Games</span></a>
+        </div>
+        <nav>
             <a href="index.html">Home</a>
             <a href="games.html">Games</a>
             <a href="about.html">About</a>
@@ -70,17 +100,22 @@
             <a href="privacy.html" class="active">Privacy</a>
             <a href="terms.html">Terms</a>
         </nav>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     </header>
 
-    <section class="policy-hero">
+    <section class="page-hero">
         <h1>🔒 <span>Privacy</span> Policy</h1>
         <p>We take your privacy seriously. Learn how we collect, use, and protect your information.</p>
     </section>
 
     <div class="policy-content">
-        <p class="last-updated">📅 Last Updated: September 2026</p>
+        <div class="last-updated">📅 Last Updated: September 2026</div>
 
         <p>At SyedGames, we take your privacy seriously. This policy describes how we collect, use, and protect your personal information when you visit our website.</p>
+
+        <div class="highlight-box">
+            <p><strong>🔑 Our Commitment:</strong> We are committed to protecting your privacy and ensuring that your personal information is handled in a safe and responsible manner.</p>
+        </div>
 
         <h2>1. Information We Collect</h2>
         <ul>
@@ -100,67 +135,25 @@
         </ul>
 
         <h2>3. Cookies</h2>
-        <p>We use cookies to enhance your experience on our site. You can control cookie preferences in your browser settings.</p>
+        <p>We use cookies to enhance your experience on our site. Cookies are small text files stored on your device that help us remember your preferences and understand how you interact with our content.</p>
+        <p>You can control cookie preferences in your browser settings. However, disabling cookies may affect some site functionality.</p>
 
         <h2>4. Third-Party Services</h2>
+        <p>We may use third-party services to improve our site, including:</p>
         <ul>
-            <li><strong>Google AdSense:</strong> For displaying relevant advertisements.</li>
-            <li><strong>Game Platforms:</strong> Games are embedded from platforms like CrazyGames and GameFlare.</li>
+            <li><strong>Google AdSense:</strong> For displaying relevant advertisements. Google has its own privacy policy.</li>
+            <li><strong>Game Platforms:</strong> Games are embedded from platforms like CrazyGames and GameFlare. They may collect usage data.</li>
+            <li><strong>Analytics:</strong> We may use tools like Google Analytics to understand site traffic.</li>
         </ul>
 
         <h2>5. Data Security</h2>
-        <p>We implement reasonable security measures to protect your data.</p>
+        <p>We implement reasonable security measures to protect your data from unauthorized access, alteration, or disclosure. However, no method of transmission over the internet is 100% secure.</p>
 
         <h2>6. Children's Privacy</h2>
-        <p>Our website is intended for users aged 13 and above.</p>
+        <p>Our website is intended for users aged 13 and above. We do not knowingly collect personal information from children under 13. If you believe we have collected such information, please contact us immediately.</p>
 
         <h2>7. Your Rights</h2>
         <ul>
             <li>You can request access to the data we hold about you.</li>
             <li>You can request correction or deletion of your data.</li>
-            <li>You can opt-out of marketing communications at any time.</li>
-        </ul>
-
-        <h2>8. Changes to This Policy</h2>
-        <p>We may update this Privacy Policy from time to time.</p>
-
-        <h2>9. Contact Us</h2>
-        <p>If you have any questions, please <a href="contact.html" style="color:#cc0000;">contact us</a>.</p>
-
-        <p style="margin-top: 40px; color: #666; font-size: 13px;">By using our website, you agree to this Privacy Policy.</p>
-    </div>
-
-    <footer>
-        <div class="footer-content">
-            <div>
-                <h4>🎮 SyedGames</h4>
-                <p>Your ultimate gaming hub for free games, reviews, and news.</p>
-            </div>
-            <div>
-                <h4>Quick Links</h4>
-                <a href="games.html">Games</a>
-                <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="terms.html">Terms & Conditions</a>
-            </div>
-            <div>
-                <h4>Connect</h4>
-                <a href="#">🐦 Twitter</a>
-                <a href="#">📺 YouTube</a>
-                <a href="#">🎮 Twitch</a>
-                <a href="#">📷 Instagram</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 SyedGames. Built with ❤️ on GitHub Pages.</p>
-        </div>
-    </footer>
-
-    <script>
-        function toggleMenu() {
-            document.getElementById('mainNav').classList.toggle('open');
-        }
-    </script>
-</body>
-</html>
+            <li>You can opt-out of marketing communications
