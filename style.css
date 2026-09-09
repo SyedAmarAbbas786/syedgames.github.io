@@ -1,3 +1,8 @@
+/* ========================================
+   PREMIUM BLACK + RED THEME
+   SyedGames - Ultimate Gaming Hub
+   ======================================== */
+
 /* ===== RESET ===== */
 * {
     margin: 0;
@@ -9,7 +14,7 @@ html {
 }
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #0a0000;
+    background: #000000;
     color: #fff;
     line-height: 1.6;
 }
@@ -20,80 +25,93 @@ a {
 
 /* ===== SCROLLBAR ===== */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
 }
 ::-webkit-scrollbar-track {
-    background: #1a0000;
+    background: #0a0a0a;
 }
 ::-webkit-scrollbar-thumb {
-    background: #cc0000;
+    background: #ff0000;
     border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #990000;
+    background: #cc0000;
 }
 
-/* ===== HEADER ===== */
+/* ===== SELECTION ===== */
+::selection {
+    background: #ff0000;
+    color: #fff;
+}
+
+/* ===== HEADER - GLASS MORPHISM ===== */
 header {
-    background: rgba(10, 0, 0, 0.95);
+    background: rgba(0, 0, 0, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     padding: 15px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 3px solid #cc0000;
+    border-bottom: 2px solid rgba(255, 0, 0, 0.3);
     position: sticky;
     top: 0;
     z-index: 1000;
-    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 40px rgba(255, 0, 0, 0.05);
 }
 .logo {
     font-size: 28px;
-    font-weight: bold;
-    color: #cc0000;
+    font-weight: 800;
+    color: #ff0000;
     letter-spacing: 1px;
-    text-shadow: 0 0 20px rgba(204, 0, 0, 0.3);
+    text-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
+    transition: all 0.3s;
 }
 .logo span {
     color: #fff;
 }
 .logo:hover {
-    transform: scale(1.02);
-    transition: 0.3s;
+    transform: scale(1.03);
+    text-shadow: 0 0 50px rgba(255, 0, 0, 0.5);
 }
 nav {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 30px;
     flex-wrap: wrap;
 }
 nav a {
-    color: #ccc;
-    font-size: 15px;
-    font-weight: 500;
-    transition: color 0.3s;
+    color: #aaa;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s;
     position: relative;
 }
 nav a::after {
     content: '';
     position: absolute;
     bottom: -5px;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     width: 0;
     height: 2px;
-    background: #cc0000;
+    background: #ff0000;
     transition: width 0.3s;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
 }
 nav a:hover {
     color: #fff;
 }
 nav a:hover::after {
-    width: 100%;
+    width: 60%;
 }
 nav a.active {
-    color: #cc0000;
+    color: #ff0000;
 }
 nav a.active::after {
-    width: 100%;
+    width: 60%;
 }
 .menu-toggle {
     display: none;
@@ -102,37 +120,48 @@ nav a.active::after {
     cursor: pointer;
 }
 
-/* ===== HERO ===== */
+/* ===== HERO - RED GLOW ===== */
 .hero {
     text-align: center;
-    padding: 120px 20px 80px;
-    background: linear-gradient(135deg, #1a0000, #0a0000, #1a0000);
+    padding: 140px 20px 90px;
+    background: radial-gradient(ellipse at center, #1a0000 0%, #000000 70%);
     position: relative;
     overflow: hidden;
 }
 .hero::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(204, 0, 0, 0.08) 0%, transparent 70%);
-    animation: rotate 30s linear infinite;
+    top: -30%;
+    left: -30%;
+    width: 160%;
+    height: 160%;
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.06) 0%, transparent 60%);
+    animation: rotateGlow 25s linear infinite;
 }
-@keyframes rotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+@keyframes rotateGlow {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.1); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background: linear-gradient(to top, #000000, transparent);
 }
 .hero h1 {
-    font-size: 60px;
+    font-size: 64px;
     margin-bottom: 20px;
     position: relative;
     z-index: 1;
+    font-weight: 800;
 }
 .hero h1 span {
-    color: #cc0000;
-    text-shadow: 0 0 40px rgba(204, 0, 0, 0.4);
+    color: #ff0000;
+    text-shadow: 0 0 60px rgba(255, 0, 0, 0.5), 0 0 120px rgba(255, 0, 0, 0.2);
 }
 .hero p {
     font-size: 20px;
@@ -143,29 +172,30 @@ nav a.active::after {
     z-index: 1;
 }
 .hero .btn {
-    background: #cc0000;
+    background: linear-gradient(135deg, #ff0000, #cc0000);
     color: #fff;
-    padding: 16px 50px;
+    padding: 18px 55px;
     border: none;
     border-radius: 50px;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     cursor: pointer;
     transition: all 0.3s;
     display: inline-block;
     position: relative;
     z-index: 1;
-    box-shadow: 0 0 40px rgba(204, 0, 0, 0.3);
+    box-shadow: 0 0 40px rgba(255, 0, 0, 0.3);
 }
 .hero .btn:hover {
-    background: #990000;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 50px rgba(204, 0, 0, 0.5);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 10px 60px rgba(255, 0, 0, 0.6);
 }
 .hero-stats {
     display: flex;
     justify-content: center;
-    gap: 60px;
+    gap: 70px;
     margin-top: 50px;
     position: relative;
     z-index: 1;
@@ -174,29 +204,33 @@ nav a.active::after {
     text-align: center;
 }
 .hero-stats .number {
-    font-size: 36px;
-    font-weight: bold;
-    color: #cc0000;
+    font-size: 40px;
+    font-weight: 800;
+    color: #ff0000;
+    text-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
 }
 .hero-stats .label {
-    font-size: 14px;
-    color: #888;
+    font-size: 13px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 /* ===== SECTION TITLES ===== */
 .section-title {
     text-align: center;
-    font-size: 38px;
-    margin: 60px 0 15px;
+    font-size: 40px;
+    font-weight: 800;
+    margin: 70px 0 15px;
     color: #fff;
 }
 .section-title span {
-    color: #cc0000;
-    text-shadow: 0 0 20px rgba(204, 0, 0, 0.3);
+    color: #ff0000;
+    text-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
 }
 .section-subtitle {
     text-align: center;
-    color: #888;
+    color: #666;
     margin-bottom: 40px;
     font-size: 17px;
 }
@@ -207,23 +241,23 @@ nav a.active::after {
     padding: 20px 20px 10px;
 }
 .search-container input {
-    background: #1a0000;
-    border: 2px solid #2a0000;
+    background: #0a0a0a;
+    border: 2px solid #1a1a1a;
     color: #fff;
-    padding: 14px 25px;
+    padding: 16px 30px;
     border-radius: 50px;
     width: 100%;
     max-width: 500px;
     font-size: 16px;
-    transition: border-color 0.3s, box-shadow 0.3s;
+    transition: all 0.3s;
     outline: none;
 }
 .search-container input:focus {
-    border-color: #cc0000;
-    box-shadow: 0 0 30px rgba(204, 0, 0, 0.1);
+    border-color: #ff0000;
+    box-shadow: 0 0 40px rgba(255, 0, 0, 0.1);
 }
 .search-container input::placeholder {
-    color: #666;
+    color: #444;
 }
 
 /* ===== CATEGORIES ===== */
@@ -235,24 +269,29 @@ nav a.active::after {
     padding: 0 20px 40px;
 }
 .category-btn {
-    background: #1a0000;
-    color: #aaa;
-    padding: 10px 25px;
-    border: 2px solid #2a0000;
+    background: #0a0a0a;
+    color: #888;
+    padding: 12px 28px;
+    border: 2px solid #1a1a1a;
     border-radius: 30px;
     cursor: pointer;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
     transition: all 0.3s;
     font-family: inherit;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
-.category-btn:hover,
-.category-btn.active {
-    background: #cc0000;
+.category-btn:hover {
+    border-color: #ff0000;
     color: #fff;
-    border-color: #cc0000;
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(204, 0, 0, 0.3);
+}
+.category-btn.active {
+    background: #ff0000;
+    color: #fff;
+    border-color: #ff0000;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
 }
 
 /* ===== GAME CARDS ===== */
@@ -265,12 +304,12 @@ nav a.active::after {
     margin: 0 auto;
 }
 .game-card {
-    background: linear-gradient(145deg, #1a0000, #0a0000);
+    background: linear-gradient(145deg, #0a0a0a, #000000);
     border-radius: 20px;
-    padding: 30px 25px;
+    padding: 35px 25px;
     text-align: center;
-    transition: all 0.4s ease;
-    border: 2px solid #2a0000;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 2px solid #121212;
     cursor: pointer;
     position: relative;
     overflow: hidden;
@@ -278,11 +317,11 @@ nav a.active::after {
 .game-card::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(204, 0, 0, 0.05) 0%, transparent 70%);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(255, 0, 0, 0.03) 0%, transparent 70%);
     opacity: 0;
     transition: opacity 0.4s;
 }
@@ -290,60 +329,68 @@ nav a.active::after {
     opacity: 1;
 }
 .game-card:hover {
-    transform: translateY(-12px) scale(1.01);
-    border-color: #cc0000;
-    box-shadow: 0 20px 60px rgba(204, 0, 0, 0.2);
+    transform: translateY(-15px) scale(1.01);
+    border-color: #ff0000;
+    box-shadow: 0 20px 60px rgba(255, 0, 0, 0.15), inset 0 0 60px rgba(255, 0, 0, 0.02);
 }
 .game-card .icon {
-    font-size: 60px;
+    font-size: 64px;
     margin-bottom: 15px;
     display: block;
+    filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.1));
 }
 .game-card h3 {
     color: #fff;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     font-size: 22px;
+    font-weight: 700;
 }
 .game-card p {
-    color: #999;
+    color: #666;
     font-size: 14px;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 .game-card .badge {
     display: inline-block;
-    background: #cc0000;
-    color: #fff;
-    font-size: 11px;
-    padding: 4px 14px;
+    font-size: 10px;
+    padding: 5px 16px;
     border-radius: 20px;
-    font-weight: 600;
-    margin: 10px 0 15px;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    margin: 12px 0 15px;
+}
+.game-card .badge.red {
+    background: #ff0000;
+    color: #fff;
 }
 .game-card .badge.green {
     background: #00cc66;
+    color: #fff;
 }
 .game-card .badge.orange {
-    background: #cc8800;
+    background: #ff8800;
+    color: #fff;
 }
 .game-card .btn-play {
-    background: #cc0000;
+    background: linear-gradient(135deg, #ff0000, #cc0000);
     color: #fff;
-    padding: 12px 35px;
+    padding: 14px 40px;
     border: none;
     border-radius: 30px;
     cursor: pointer;
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     transition: all 0.3s;
     margin-top: 5px;
     font-family: inherit;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
 }
 .game-card .btn-play:hover {
-    background: #990000;
-    transform: scale(1.05);
-    box-shadow: 0 8px 25px rgba(204, 0, 0, 0.4);
+    transform: scale(1.06);
+    box-shadow: 0 8px 30px rgba(255, 0, 0, 0.5);
 }
 .game-card .btn-play:active {
     transform: scale(0.95);
@@ -357,64 +404,68 @@ nav a.active::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.92);
+    background: rgba(0, 0, 0, 0.95);
     z-index: 9999;
     justify-content: center;
     align-items: center;
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(15px);
     padding: 20px;
 }
 .game-player-overlay.active {
     display: flex;
-    animation: fadeIn 0.3s ease;
+    animation: fadeInPremium 0.3s ease;
 }
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
+@keyframes fadeInPremium {
+    from { opacity: 0; transform: scale(0.92) translateY(20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
 }
 .game-player-container {
-    background: #1a0000;
-    border-radius: 20px;
+    background: #0a0a0a;
+    border-radius: 24px;
     width: 100%;
     max-width: 1100px;
     max-height: 90vh;
-    border: 2px solid #cc0000;
-    box-shadow: 0 0 60px rgba(204, 0, 0, 0.2);
+    border: 2px solid rgba(255, 0, 0, 0.3);
+    box-shadow: 0 0 80px rgba(255, 0, 0, 0.1);
     overflow: hidden;
     display: flex;
     flex-direction: column;
 }
 .game-player-header {
-    background: #0a0000;
-    padding: 15px 25px;
+    background: #000000;
+    padding: 18px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid #cc0000;
+    border-bottom: 2px solid rgba(255, 0, 0, 0.2);
     flex-wrap: wrap;
     gap: 10px;
 }
 .game-player-header h3 {
-    color: #cc0000;
+    color: #ff0000;
     font-size: 18px;
     margin: 0;
-    font-weight: 600;
+    font-weight: 700;
+    text-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
 }
 .close-game-btn {
-    background: #cc0000;
+    background: #ff0000;
     color: #fff;
     border: none;
-    padding: 10px 25px;
+    padding: 10px 30px;
     border-radius: 30px;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
     transition: all 0.3s;
     font-family: inherit;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 .close-game-btn:hover {
-    background: #990000;
+    background: #cc0000;
     transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
 }
 .game-player-body {
     flex: 1;
@@ -431,42 +482,45 @@ nav a.active::after {
 
 /* ===== FOOTER ===== */
 footer {
-    background: #0a0000;
-    border-top: 2px solid #1a0000;
-    padding: 50px 40px 30px;
+    background: #000000;
+    border-top: 2px solid rgba(255, 0, 0, 0.1);
+    padding: 60px 40px 30px;
 }
 .footer-content {
     max-width: 1300px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 40px;
+    gap: 50px;
 }
 .footer-content h4 {
-    color: #cc0000;
+    color: #ff0000;
     font-size: 18px;
+    font-weight: 700;
     margin-bottom: 15px;
+    text-shadow: 0 0 20px rgba(255, 0, 0, 0.1);
 }
 .footer-content p,
 .footer-content a {
-    color: #888;
+    color: #555;
     font-size: 14px;
-    line-height: 2;
+    line-height: 2.2;
     display: block;
+    transition: color 0.3s;
 }
 .footer-content a:hover {
-    color: #cc0000;
+    color: #ff0000;
 }
 .footer-bottom {
     text-align: center;
     padding-top: 30px;
     margin-top: 30px;
-    border-top: 1px solid #1a0000;
-    color: #666;
+    border-top: 1px solid #0a0a0a;
+    color: #333;
     font-size: 14px;
 }
 .footer-bottom a {
-    color: #cc0000;
+    color: #ff0000;
 }
 .footer-bottom a:hover {
     text-decoration: underline;
@@ -487,20 +541,20 @@ footer {
         flex-direction: column;
         gap: 12px;
         padding: 15px 0;
-        border-top: 1px solid #1a0000;
+        border-top: 1px solid rgba(255, 0, 0, 0.1);
         margin-top: 10px;
     }
     nav.open {
         display: flex;
     }
     nav a {
-        font-size: 16px;
+        font-size: 15px;
     }
     .hero {
-        padding: 80px 20px 50px;
+        padding: 90px 20px 60px;
     }
     .hero h1 {
-        font-size: 34px;
+        font-size: 36px;
     }
     .hero p {
         font-size: 16px;
@@ -518,20 +572,27 @@ footer {
         gap: 20px;
     }
     .section-title {
-        font-size: 28px;
+        font-size: 30px;
         margin: 40px 0 10px;
     }
     .footer-content {
         grid-template-columns: 1fr 1fr;
-        gap: 25px;
+        gap: 30px;
     }
     .game-player-container {
         max-width: 100%;
         max-height: 95vh;
-        border-radius: 12px;
+        border-radius: 16px;
+    }
+    .game-player-header {
+        padding: 14px 20px;
     }
     .game-player-header h3 {
         font-size: 15px;
+    }
+    .close-game-btn {
+        padding: 8px 20px;
+        font-size: 13px;
     }
     .game-player-body {
         min-height: 350px;
@@ -550,11 +611,19 @@ footer {
     .game-player-header {
         flex-direction: column;
         text-align: center;
+        padding: 12px 15px;
     }
     .game-player-body {
         min-height: 280px;
     }
     .game-player-body iframe {
         min-height: 280px;
+    }
+    .hero h1 {
+        font-size: 28px;
+    }
+    .hero .btn {
+        padding: 14px 35px;
+        font-size: 15px;
     }
 }
