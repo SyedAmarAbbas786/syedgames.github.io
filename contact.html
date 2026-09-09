@@ -9,13 +9,15 @@
         .contact-hero {
             text-align: center;
             padding: 80px 20px 40px;
-            background: linear-gradient(135deg, #0f3460, #1a1a2e);
+            background: linear-gradient(135deg, #1a0000, #0a0000);
+            border-bottom: 3px solid #cc0000;
         }
         .contact-hero h1 {
             font-size: 48px;
         }
         .contact-hero h1 span {
-            color: #e94560;
+            color: #cc0000;
+            text-shadow: 0 0 30px rgba(204, 0, 0, 0.4);
         }
         .contact-hero p {
             color: #aaa;
@@ -31,7 +33,7 @@
             gap: 60px;
         }
         .contact-info h2 {
-            color: #e94560;
+            color: #cc0000;
             font-size: 28px;
             margin-bottom: 20px;
         }
@@ -44,15 +46,15 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             padding: 15px 20px;
-            background: #1a1a2e;
+            background: #1a0000;
             border-radius: 12px;
-            border: 1px solid #2a2a4e;
+            border: 2px solid #2a0000;
             transition: border-color 0.3s;
         }
         .contact-method:hover {
-            border-color: #e94560;
+            border-color: #cc0000;
         }
         .contact-method .icon {
             font-size: 28px;
@@ -67,20 +69,20 @@
             font-size: 14px;
         }
         .contact-method .details a {
-            color: #e94560;
+            color: #cc0000;
             text-decoration: none;
         }
         .contact-method .details a:hover {
             text-decoration: underline;
         }
         .contact-form {
-            background: #1a1a2e;
+            background: #1a0000;
             padding: 40px;
             border-radius: 20px;
-            border: 1px solid #2a2a4e;
+            border: 2px solid #2a0000;
         }
         .contact-form h2 {
-            color: #e94560;
+            color: #cc0000;
             font-size: 28px;
             margin-bottom: 10px;
         }
@@ -102,8 +104,8 @@
         .form-group select {
             width: 100%;
             padding: 14px 18px;
-            background: #0a0a0a;
-            border: 2px solid #2a2a4e;
+            background: #0a0000;
+            border: 2px solid #2a0000;
             border-radius: 10px;
             color: #fff;
             font-size: 16px;
@@ -114,17 +116,17 @@
         .form-group input:focus,
         .form-group textarea:focus,
         .form-group select:focus {
-            border-color: #e94560;
+            border-color: #cc0000;
         }
         .form-group textarea {
             resize: vertical;
             min-height: 120px;
         }
         .form-group select option {
-            background: #1a1a2e;
+            background: #1a0000;
         }
         .submit-btn {
-            background: #e94560;
+            background: #cc0000;
             color: #fff;
             padding: 16px 45px;
             border: none;
@@ -136,9 +138,9 @@
             width: 100%;
         }
         .submit-btn:hover {
-            background: #c73652;
+            background: #990000;
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(233, 69, 96, 0.3);
+            box-shadow: 0 8px 30px rgba(204, 0, 0, 0.3);
         }
         .form-success {
             display: none;
@@ -149,7 +151,7 @@
             font-size: 60px;
         }
         .form-success h3 {
-            color: #2ecc71;
+            color: #00cc66;
             margin: 15px 0 10px;
         }
         .form-success p {
@@ -162,7 +164,7 @@
             text-align: center;
         }
         .social-section h2 {
-            color: #e94560;
+            color: #cc0000;
             font-size: 28px;
             margin-bottom: 20px;
         }
@@ -175,17 +177,17 @@
         .social-icons a {
             display: inline-block;
             padding: 15px 30px;
-            background: #1a1a2e;
+            background: #1a0000;
             border-radius: 12px;
             color: #ccc;
             font-size: 18px;
-            border: 1px solid #2a2a4e;
+            border: 2px solid #2a0000;
             transition: all 0.3s;
             text-decoration: none;
         }
         .social-icons a:hover {
-            border-color: #e94560;
-            color: #e94560;
+            border-color: #cc0000;
+            color: #cc0000;
             transform: translateY(-3px);
         }
         @media (max-width: 768px) {
@@ -232,7 +234,6 @@
                     <p><a href="mailto:contact@syedgames.com">contact@syedgames.com</a></p>
                 </div>
             </div>
-
             <div class="contact-method">
                 <div class="icon">🐦</div>
                 <div class="details">
@@ -240,7 +241,6 @@
                     <p><a href="#">@SyedGames</a></p>
                 </div>
             </div>
-
             <div class="contact-method">
                 <div class="icon">📺</div>
                 <div class="details">
@@ -248,7 +248,6 @@
                     <p><a href="#">SyedGames Official</a></p>
                 </div>
             </div>
-
             <div class="contact-method">
                 <div class="icon">🎮</div>
                 <div class="details">
@@ -256,7 +255,6 @@
                     <p><a href="#">SyedGamesTV</a></p>
                 </div>
             </div>
-
             <div class="contact-method">
                 <div class="icon">💬</div>
                 <div class="details">
@@ -264,7 +262,6 @@
                     <p><a href="#">Join Our Community Server</a></p>
                 </div>
             </div>
-
             <div class="contact-method">
                 <div class="icon">📷</div>
                 <div class="details">
@@ -272,10 +269,6 @@
                     <p><a href="#">@SyedGames</a></p>
                 </div>
             </div>
-
-            <p style="margin-top: 20px; color: #666; font-size: 14px;">
-                📍 Online — We're a remote team of gamers from around the world!
-            </p>
         </div>
 
         <div class="contact-form" id="contactForm">
@@ -366,19 +359,13 @@
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
-
-            // Basic validation
             if (!name || !email || !message) {
                 alert('Please fill in all required fields.');
                 return;
             }
-
-            // Show success message
             document.querySelector('.contact-form form').style.display = 'none';
             document.querySelector('.contact-form p').style.display = 'none';
             document.getElementById('formSuccess').style.display = 'block';
-
-            // Reset form after 3 seconds (for future use)
             setTimeout(() => {
                 document.querySelector('.contact-form form').reset();
             }, 3000);
