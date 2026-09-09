@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - SyedGames</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .about-hero {
+            text-align: center;
+            padding: 80px 20px 40px;
+            background: linear-gradient(135deg, #0f3460, #1a1a2e);
+        }
+        .about-hero h1 {
+            font-size: 48px;
+        }
+        .about-hero h1 span {
+            color: #e94560;
+        }
+        .about-hero p {
+            color: #aaa;
+            max-width: 600px;
+            margin: 10px auto 0;
+        }
+        .about-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+        .about-content h2 {
+            color: #e94560;
+            margin: 40px 0 15px;
+            font-size: 28px;
+        }
+        .about-content h2:first-child {
+            margin-top: 0;
+        }
+        .about-content p {
+            color: #ccc;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        .about-content ul {
+            color: #ccc;
+            padding-left: 20px;
+            line-height: 2;
+        }
+        .about-content ul li {
+            margin-bottom: 5px;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .team-member {
+            text-align: center;
+            background: #1a1a2e;
+            padding: 30px 20px;
+            border-radius: 15px;
+            border: 1px solid #2a2a4e;
+            transition: transform 0.3s;
+        }
+        .team-member:hover {
+            transform: translateY(-5px);
+            border-color: #e94560;
+        }
+        .team-member .avatar {
+            font-size: 60px;
+            margin-bottom: 10px;
+        }
+        .team-member h4 {
+            color: #fff;
+            font-size: 18px;
+        }
+        .team-member p {
+            color: #888;
+            font-size: 14px;
+        }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        .value-item {
+            background: #1a1a2e;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid #2a2a4e;
+        }
+        .value-item .icon {
+            font-size: 40px;
+        }
+        .value-item h4 {
+            color: #e94560;
+            margin: 10px 0;
+        }
+        .value-item p {
+            color: #888;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Syed<span>Games</span></div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <nav id="mainNav">
+            <a href="index.html">Home</a>
+            <a href="games.html">Games</a>
+            <a href="about.html" class="active">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+        </nav>
+    </header>
+
+    <section class="about-hero">
+        <h1>About <span>SyedGames</span></h1>
+        <p>Learn more about who we are, what we do, and why we love gaming.</p>
+    </section>
+
+    <div class="about-content">
+        <h2>🎯 Who We Are</h2>
+        <p>SyedGames is a passionate gaming community dedicated to bringing you the best free online games, reviews, and gaming news. We believe that gaming should be accessible to everyone, regardless of budget or location.</p>
+        <p>Founded by Syed, a lifelong gamer and tech enthusiast, our mission is to create a hub where gamers can discover new games, connect with others, and stay up-to-date with the latest gaming trends.</p>
+
+        <h2>🚀 Our Mission</h2>
+        <p>To provide a safe, fun, and engaging platform where gamers of all ages can explore, play, and share their love for video games. We curate only the best free-to-play games from trusted sources.</p>
+
+        <h2>💎 Our Core Values</h2>
+        <div class="values-grid">
+            <div class="value-item">
+                <div class="icon">🎮</div>
+                <h4>Fun First</h4>
+                <p>Gaming should always be about having a great time.</p>
+            </div>
+            <div class="value-item">
+                <div class="icon">🤝</div>
+                <h4>Community</h4>
+                <p>Building a welcoming space for all gamers.</p>
+            </div>
+            <div class="value-item">
+                <div class="icon">🔒</div>
+                <h4>Safety</h4>
+                <p>Ensuring a safe environment for our users.</p>
+            </div>
+            <div class="value-item">
+                <div class="icon">🌟</div>
+                <h4>Quality</h4>
+                <p>Curating only the best games and content.</p>
+            </div>
+        </div>
+
+        <h2>👥 Meet the Team</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="avatar">👨‍💻</div>
+                <h4>Syed</h4>
+                <p>Founder & Developer</p>
+            </div>
+            <div class="team-member">
+                <div class="avatar">🎨</div>
+                <h4>Ahmed</h4>
+                <p>UI/UX Designer</p>
+            </div>
+            <div class="team-member">
+                <div class="avatar">✍️</div>
+                <h4>Fatima</h4>
+                <p>Content Writer</p>
+            </div>
+            <div class="team-member">
+                <div class="avatar">🛡️</div>
+                <h4>Omar</h4>
+                <p>Community Manager</p>
+            </div>
+        </div>
+
+        <h2>📈 Our Stats</h2>
+        <ul>
+            <li>🎮 <strong>50+</strong> Free Games Curated</li>
+            <li>👥 <strong>10,000+</strong> Active Players</li>
+            <li>⭐ <strong>4.8★</strong> Community Rating</li>
+            <li>🌍 <strong>120+</strong> Countries Reached</li>
+        </ul>
+
+        <h2>🤝 Join Our Community</h2>
+        <p>We're more than just a website—we're a community. Follow us on social media, join our Discord server, and become part of the SyedGames family.</p>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h4>🎮 SyedGames</h4>
+                <p>Your ultimate gaming hub for free games, reviews, and news.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <a href="games.html">Games</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms & Conditions</a>
+            </div>
+            <div>
+                <h4>Connect</h4>
+                <a href="#">🐦 Twitter</a>
+                <a href="#">📺 YouTube</a>
+                <a href="#">🎮 Twitch</a>
+                <a href="#">📷 Instagram</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SyedGames. Built with ❤️ on GitHub Pages.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('mainNav').classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
