@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - SyedGames</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-hero {
+            text-align: center;
+            padding: 80px 20px 40px;
+            background: linear-gradient(135deg, #0f3460, #1a1a2e);
+        }
+        .contact-hero h1 {
+            font-size: 48px;
+        }
+        .contact-hero h1 span {
+            color: #e94560;
+        }
+        .contact-hero p {
+            color: #aaa;
+            max-width: 600px;
+            margin: 10px auto 0;
+        }
+        .contact-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+        .contact-info h2 {
+            color: #e94560;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .contact-info p {
+            color: #ccc;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px 20px;
+            background: #1a1a2e;
+            border-radius: 12px;
+            border: 1px solid #2a2a4e;
+            transition: border-color 0.3s;
+        }
+        .contact-method:hover {
+            border-color: #e94560;
+        }
+        .contact-method .icon {
+            font-size: 28px;
+        }
+        .contact-method .details h4 {
+            color: #fff;
+            font-size: 16px;
+        }
+        .contact-method .details p {
+            color: #888;
+            margin: 0;
+            font-size: 14px;
+        }
+        .contact-method .details a {
+            color: #e94560;
+            text-decoration: none;
+        }
+        .contact-method .details a:hover {
+            text-decoration: underline;
+        }
+        .contact-form {
+            background: #1a1a2e;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #2a2a4e;
+        }
+        .contact-form h2 {
+            color: #e94560;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .contact-form p {
+            color: #888;
+            margin-bottom: 25px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            color: #ccc;
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 14px 18px;
+            background: #0a0a0a;
+            border: 2px solid #2a2a4e;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 16px;
+            transition: border-color 0.3s;
+            outline: none;
+            font-family: inherit;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: #e94560;
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .form-group select option {
+            background: #1a1a2e;
+        }
+        .submit-btn {
+            background: #e94560;
+            color: #fff;
+            padding: 16px 45px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+        .submit-btn:hover {
+            background: #c73652;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(233, 69, 96, 0.3);
+        }
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 30px;
+        }
+        .form-success .icon {
+            font-size: 60px;
+        }
+        .form-success h3 {
+            color: #2ecc71;
+            margin: 15px 0 10px;
+        }
+        .form-success p {
+            color: #888;
+        }
+        .social-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px 60px;
+            text-align: center;
+        }
+        .social-section h2 {
+            color: #e94560;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        .social-icons a {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #1a1a2e;
+            border-radius: 12px;
+            color: #ccc;
+            font-size: 18px;
+            border: 1px solid #2a2a4e;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        .social-icons a:hover {
+            border-color: #e94560;
+            color: #e94560;
+            transform: translateY(-3px);
+        }
+        @media (max-width: 768px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                padding: 30px 20px;
+                gap: 40px;
+            }
+            .contact-form {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Syed<span>Games</span></div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <nav id="mainNav">
+            <a href="index.html">Home</a>
+            <a href="games.html">Games</a>
+            <a href="about.html">About</a>
+            <a href="contact.html" class="active">Contact</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+        </nav>
+    </header>
+
+    <section class="contact-hero">
+        <h1>📧 <span>Contact</span> Us</h1>
+        <p>Have questions, feedback, or suggestions? We'd love to hear from you!</p>
+    </section>
+
+    <div class="contact-wrapper">
+        <div class="contact-info">
+            <h2>📬 Get in Touch</h2>
+            <p>Whether you have a question about a game, want to report an issue, or just want to say hello—we're here for you. Reach out through any of the channels below.</p>
+
+            <div class="contact-method">
+                <div class="icon">📧</div>
+                <div class="details">
+                    <h4>Email</h4>
+                    <p><a href="mailto:contact@syedgames.com">contact@syedgames.com</a></p>
+                </div>
+            </div>
+
+            <div class="contact-method">
+                <div class="icon">🐦</div>
+                <div class="details">
+                    <h4>Twitter / X</h4>
+                    <p><a href="#">@SyedGames</a></p>
+                </div>
+            </div>
+
+            <div class="contact-method">
+                <div class="icon">📺</div>
+                <div class="details">
+                    <h4>YouTube</h4>
+                    <p><a href="#">SyedGames Official</a></p>
+                </div>
+            </div>
+
+            <div class="contact-method">
+                <div class="icon">🎮</div>
+                <div class="details">
+                    <h4>Twitch</h4>
+                    <p><a href="#">SyedGamesTV</a></p>
+                </div>
+            </div>
+
+            <div class="contact-method">
+                <div class="icon">💬</div>
+                <div class="details">
+                    <h4>Discord</h4>
+                    <p><a href="#">Join Our Community Server</a></p>
+                </div>
+            </div>
+
+            <div class="contact-method">
+                <div class="icon">📷</div>
+                <div class="details">
+                    <h4>Instagram</h4>
+                    <p><a href="#">@SyedGames</a></p>
+                </div>
+            </div>
+
+            <p style="margin-top: 20px; color: #666; font-size: 14px;">
+                📍 Online — We're a remote team of gamers from around the world!
+            </p>
+        </div>
+
+        <div class="contact-form" id="contactForm">
+            <h2>✉️ Send a Message</h2>
+            <p>Fill out the form below and we'll get back to you within 24-48 hours.</p>
+
+            <form onsubmit="submitForm(event)">
+                <div class="form-group">
+                    <label for="name">Your Name *</label>
+                    <input type="text" id="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email *</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <select id="subject">
+                        <option value="general">General Inquiry</option>
+                        <option value="game">Game Suggestion</option>
+                        <option value="bug">Report a Bug</option>
+                        <option value="feedback">Feedback</option>
+                        <option value="collab">Collaboration</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" placeholder="Write your message here..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">📤 Send Message</button>
+            </form>
+
+            <div class="form-success" id="formSuccess">
+                <div class="icon">✅</div>
+                <h3>Message Sent!</h3>
+                <p>Thank you for reaching out. We'll get back to you within 24-48 hours. 🎮</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="social-section">
+        <h2>🌐 Connect With Us</h2>
+        <div class="social-icons">
+            <a href="#">🐦 Twitter</a>
+            <a href="#">📺 YouTube</a>
+            <a href="#">🎮 Twitch</a>
+            <a href="#">📷 Instagram</a>
+            <a href="#">💬 Discord</a>
+            <a href="#">📘 Facebook</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h4>🎮 SyedGames</h4>
+                <p>Your ultimate gaming hub for free games, reviews, and news.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <a href="games.html">Games</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms & Conditions</a>
+            </div>
+            <div>
+                <h4>Connect</h4>
+                <a href="#">🐦 Twitter</a>
+                <a href="#">📺 YouTube</a>
+                <a href="#">🎮 Twitch</a>
+                <a href="#">📷 Instagram</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SyedGames. Built with ❤️ on GitHub Pages.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('mainNav').classList.toggle('open');
+        }
+
+        function submitForm(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Basic validation
+            if (!name || !email || !message) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            // Show success message
+            document.querySelector('.contact-form form').style.display = 'none';
+            document.querySelector('.contact-form p').style.display = 'none';
+            document.getElementById('formSuccess').style.display = 'block';
+
+            // Reset form after 3 seconds (for future use)
+            setTimeout(() => {
+                document.querySelector('.contact-form form').reset();
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
