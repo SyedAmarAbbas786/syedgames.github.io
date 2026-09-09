@@ -6,23 +6,26 @@
     <title>Contact Us - SyedGames</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        .contact-hero {
+        .page-hero {
             text-align: center;
-            padding: 80px 20px 40px;
-            background: linear-gradient(135deg, #1a0000, #0a0000);
-            border-bottom: 3px solid #cc0000;
+            padding: 100px 20px 60px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.85), rgba(10,0,0,0.9)),
+                        url('https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=1920&h=400&fit=crop&crop=center') center/cover no-repeat;
+            border-bottom: 3px solid rgba(255, 0, 0, 0.3);
         }
-        .contact-hero h1 {
-            font-size: 48px;
+        .page-hero h1 {
+            font-size: 52px;
+            font-weight: 900;
         }
-        .contact-hero h1 span {
-            color: #cc0000;
-            text-shadow: 0 0 30px rgba(204, 0, 0, 0.4);
+        .page-hero h1 span {
+            color: #ff0000;
+            text-shadow: 0 0 40px rgba(255, 0, 0, 0.3);
         }
-        .contact-hero p {
+        .page-hero p {
             color: #aaa;
             max-width: 600px;
             margin: 10px auto 0;
+            font-size: 18px;
         }
         .contact-wrapper {
             max-width: 1200px;
@@ -33,9 +36,11 @@
             gap: 60px;
         }
         .contact-info h2 {
-            color: #cc0000;
+            color: #ff0000;
             font-size: 28px;
             margin-bottom: 20px;
+            border-left: 4px solid #ff0000;
+            padding-left: 15px;
         }
         .contact-info p {
             color: #ccc;
@@ -48,13 +53,14 @@
             gap: 15px;
             margin-bottom: 15px;
             padding: 15px 20px;
-            background: #1a0000;
+            background: linear-gradient(145deg, #0a0a0a, #000000);
             border-radius: 12px;
-            border: 2px solid #2a0000;
-            transition: border-color 0.3s;
+            border: 2px solid #1a1a1a;
+            transition: all 0.3s ease;
         }
         .contact-method:hover {
-            border-color: #cc0000;
+            border-color: #ff0000;
+            transform: translateX(5px);
         }
         .contact-method .icon {
             font-size: 28px;
@@ -69,20 +75,20 @@
             font-size: 14px;
         }
         .contact-method .details a {
-            color: #cc0000;
+            color: #ff0000;
             text-decoration: none;
         }
         .contact-method .details a:hover {
             text-decoration: underline;
         }
         .contact-form {
-            background: #1a0000;
+            background: linear-gradient(145deg, #0a0a0a, #000000);
             padding: 40px;
             border-radius: 20px;
-            border: 2px solid #2a0000;
+            border: 2px solid #1a1a1a;
         }
         .contact-form h2 {
-            color: #cc0000;
+            color: #ff0000;
             font-size: 28px;
             margin-bottom: 10px;
         }
@@ -97,15 +103,15 @@
             color: #ccc;
             display: block;
             margin-bottom: 5px;
-            font-weight: 500;
+            font-weight: 600;
         }
         .form-group input,
         .form-group textarea,
         .form-group select {
             width: 100%;
             padding: 14px 18px;
-            background: #0a0000;
-            border: 2px solid #2a0000;
+            background: #000000;
+            border: 2px solid #1a1a1a;
             border-radius: 10px;
             color: #fff;
             font-size: 16px;
@@ -116,31 +122,34 @@
         .form-group input:focus,
         .form-group textarea:focus,
         .form-group select:focus {
-            border-color: #cc0000;
+            border-color: #ff0000;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.05);
         }
         .form-group textarea {
             resize: vertical;
             min-height: 120px;
         }
         .form-group select option {
-            background: #1a0000;
+            background: #0a0a0a;
         }
         .submit-btn {
-            background: #cc0000;
+            background: linear-gradient(135deg, #ff0000, #cc0000);
             color: #fff;
             padding: 16px 45px;
             border: none;
             border-radius: 50px;
-            font-size: 18px;
-            font-weight: 600;
+            font-size: 16px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             cursor: pointer;
             transition: all 0.3s;
             width: 100%;
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.15);
         }
         .submit-btn:hover {
-            background: #990000;
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(204, 0, 0, 0.3);
+            box-shadow: 0 8px 40px rgba(255, 0, 0, 0.4);
         }
         .form-success {
             display: none;
@@ -164,37 +173,42 @@
             text-align: center;
         }
         .social-section h2 {
-            color: #cc0000;
+            color: #ff0000;
             font-size: 28px;
             margin-bottom: 20px;
         }
         .social-icons {
             display: flex;
             justify-content: center;
-            gap: 25px;
+            gap: 20px;
             flex-wrap: wrap;
         }
         .social-icons a {
             display: inline-block;
-            padding: 15px 30px;
-            background: #1a0000;
+            padding: 14px 28px;
+            background: linear-gradient(145deg, #0a0a0a, #000000);
             border-radius: 12px;
             color: #ccc;
-            font-size: 18px;
-            border: 2px solid #2a0000;
+            font-size: 16px;
+            border: 2px solid #1a1a1a;
             transition: all 0.3s;
             text-decoration: none;
+            font-weight: 600;
         }
         .social-icons a:hover {
-            border-color: #cc0000;
-            color: #cc0000;
+            border-color: #ff0000;
+            color: #ff0000;
             transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 0, 0, 0.1);
         }
         @media (max-width: 768px) {
             .contact-wrapper {
                 grid-template-columns: 1fr;
                 padding: 30px 20px;
                 gap: 40px;
+            }
+            .page-hero h1 {
+                font-size: 36px;
             }
             .contact-form {
                 padding: 25px;
@@ -205,9 +219,10 @@
 <body>
 
     <header>
-        <div class="logo">Syed<span>Games</span></div>
-        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-        <nav id="mainNav">
+        <div class="logo">
+            <a href="index.html">Syed<span>Games</span></a>
+        </div>
+        <nav>
             <a href="index.html">Home</a>
             <a href="games.html">Games</a>
             <a href="about.html">About</a>
@@ -215,9 +230,10 @@
             <a href="privacy.html">Privacy</a>
             <a href="terms.html">Terms</a>
         </nav>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     </header>
 
-    <section class="contact-hero">
+    <section class="page-hero">
         <h1>📧 <span>Contact</span> Us</h1>
         <p>Have questions, feedback, or suggestions? We'd love to hear from you!</p>
     </section>
@@ -326,10 +342,11 @@
         <div class="footer-content">
             <div>
                 <h4>🎮 SyedGames</h4>
-                <p>Your ultimate gaming hub for free games, reviews, and news.</p>
+                <p>Your premium destination for free online games and gaming community.</p>
             </div>
             <div>
                 <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
                 <a href="games.html">Games</a>
                 <a href="about.html">About</a>
                 <a href="contact.html">Contact</a>
@@ -351,7 +368,7 @@
 
     <script>
         function toggleMenu() {
-            document.getElementById('mainNav').classList.toggle('open');
+            document.querySelector('nav').classList.toggle('open');
         }
 
         function submitForm(e) {
