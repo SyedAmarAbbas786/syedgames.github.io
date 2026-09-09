@@ -3,187 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SyedGames - Ultimate Gaming Hub</title>
+    <title>QEVRANO PC GAMES - Premium Gaming Hub</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- ===== HEADER ===== -->
     <header>
-        <div class="logo">Syed<span>Games</span></div>
-        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-        <nav id="mainNav">
+        <div class="logo">
+            <a href="index.html">QEVRANO<span>PC</span></a>
+        </div>
+        <nav>
             <a href="index.html" class="active">Home</a>
             <a href="games.html">Games</a>
             <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
-            <a href="privacy.html">Privacy</a>
-            <a href="terms.html">Terms</a>
         </nav>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     </header>
 
+    <!-- ===== HERO SECTION ===== -->
     <section class="hero">
-        <h1>
-            <span class="glow-text">Welcome to</span><br>
-            <span class="highlight">SyedGames</span>
-        </h1>
-        <p>Your ultimate gaming hub for reviews, news, and free games. Click "Play Now" and play instantly on our site!</p>
-        <a href="#gamesSection" class="btn">🎮 Explore Games</a>
+        <div class="hero-content">
+            <h1>
+                <span class="glow-text">Welcome to</span><br>
+                <span class="highlight">QEVRANO</span>
+                <span class="sub-highlight">PC GAMES</span>
+            </h1>
+            <p>Discover PC games, explore featured titles, and find your next gaming experience.</p>
+            <a href="#featured" class="btn-primary">🎮 Explore Games</a>
+        </div>
+        
         <div class="hero-stats">
-            <div>
-                <div class="number">50+</div>
-                <div class="label">Free Games</div>
+            <div class="stat-item">
+                <div class="number">18</div>
+                <div class="label">Games Available</div>
             </div>
-            <div>
-                <div class="number">10K+</div>
-                <div class="label">Happy Players</div>
+            <div class="stat-item">
+                <div class="number">3</div>
+                <div class="label">Game Pages</div>
             </div>
-            <div>
-                <div class="number">4.8★</div>
-                <div class="label">Community Rating</div>
+            <div class="stat-item">
+                <div class="number">FREE</div>
+                <div class="label">Official Sources</div>
             </div>
         </div>
     </section>
 
-    <h2 class="section-title" id="gamesSection">🔥 <span>Featured</span> Games</h2>
-    <p class="section-subtitle">Click "Play Now" to play instantly right here on SyedGames!</p>
+    <!-- ===== FEATURED GAMES ===== -->
+    <h2 class="section-title" id="featured">🔥 <span>Featured</span> Games</h2>
+    <p class="section-subtitle">Explore our curated collection of premium and free PC games.</p>
 
-    <!-- ===== GAME GRID ===== -->
     <div class="games-grid">
-        <!-- Game 1 -->
-        <div class="game-card" data-game="CyberQuest 2026" data-url="https://www.gameflare.com/embed/cyber-quest/">
-            <span class="icon">🎮</span>
-            <h3>CyberQuest 2026</h3>
-            <p>Immersive open-world RPG set in a dystopian future.</p>
-            <span class="badge orange">Coming Soon</span>
-            <button class="btn-play" onclick="playGame(this)">▶️ Play Now</button>
+        <!-- Paid Game 1 -->
+        <div class="game-card">
+            <div class="game-icon">🎯</div>
+            <h3>Far Cry 2</h3>
+            <p>Action adventure first-person shooter.</p>
+            <span class="price-tag paid">PAID</span>
+            <a href="#" class="btn">Buy Now</a>
         </div>
 
-        <!-- Game 2 -->
-        <div class="game-card" data-game="Dragon's Legacy" data-url="https://www.crazygames.com/embed/dragon-legacy">
-            <span class="icon">⚔️</span>
-            <h3>Dragon's Legacy</h3>
-            <p>Epic fantasy adventure with legendary dragon battles.</p>
-            <span class="badge green">Play Now</span>
-            <button class="btn-play" onclick="playGame(this)">▶️ Play Now</button>
+        <!-- Paid Game 2 -->
+        <div class="game-card">
+            <div class="game-icon">⚔️</div>
+            <h3>Far Cry 3</h3>
+            <p>Open-world action adventure shooter.</p>
+            <span class="price-tag paid">PAID</span>
+            <a href="#" class="btn">Buy Now</a>
         </div>
 
-        <!-- Game 3 -->
-        <div class="game-card" data-game="Turbo Drift" data-url="https://www.gameflare.com/embed/turbo-drift/">
-            <span class="icon">🏎️</span>
-            <h3>Turbo Drift</h3>
-            <p>High-speed racing game with drift mechanics.</p>
-            <span class="badge green">Play Now</span>
-            <button class="btn-play" onclick="playGame(this)">▶️ Play Now</button>
+        <!-- Paid Game 3 -->
+        <div class="game-card">
+            <div class="game-icon">🗡️</div>
+            <h3>Assassin's Creed II</h3>
+            <p>Historical action adventure experience.</p>
+            <span class="price-tag paid">PAID</span>
+            <a href="#" class="btn">Buy Now</a>
         </div>
 
-        <!-- Game 4 -->
-        <div class="game-card" data-game="Zombie Outbreak" data-url="https://www.crazygames.com/embed/zombie-outbreak">
-            <span class="icon">🧟</span>
-            <h3>Zombie Outbreak</h3>
-            <p>Survival horror with co-op gameplay and terrifying enemies.</p>
-            <span class="badge orange">Coming Soon</span>
-            <button class="btn-play" onclick="playGame(this)">▶️ Play Now</button>
+        <!-- Free Game 1 -->
+        <div class="game-card">
+            <div class="game-icon">🔫</div>
+            <h3>Warframe</h3>
+            <p>Free online action game.</p>
+            <span class="price-tag free">FREE</span>
+            <a href="#" class="btn">Download Free</a>
         </div>
 
-        <!-- Game 5 -->
-        <div class="game-card" data-game="Retro Rampage" data-url="https://www.gameflare.com/embed/retro-rampage/">
-            <span class="icon">👾</span>
-            <h3>Retro Rampage</h3>
-            <p>Classic arcade-style shooter with modern graphics.</p>
-            <span class="badge green">Play Now</span>
-            <button class="btn-play" onclick="playGame(this)">▶️ Play Now</button>
+        <!-- Free Game 2 -->
+        <div class="game-card">
+            <div class="game-icon">🏎️</div>
+            <h3>Trackmania</h3>
+            <p>Fast-paced racing experience.</p>
+            <span class="price-tag free">FREE</span>
+            <a href="#" class="btn">Download Free</a>
         </div>
 
-        <!-- Game 6 -->
-        <div class="game-card" data-game="Space Rogue" data-url="https://www.crazygames.com/embed/space-rogue">
-            <span class="icon">🚀</span>
-            <h3>Space Rogue</h3>
-            <p>Fast-paced space shooter with stunning visuals.</p>
-            <span class="badge green">Play Now</span>
-            <button class="btn-play" onclick="playGame(this)">▶️ Play Now</button>
-        </div>
-
-        <!-- Game 7 -->
-        <div class="game-card" data-game="Shadow Ninja" data-url="https://www.gameflare.com/embed/shadow-ninja/">
-            <span class="icon">🥷</span>
-            <h3>Shadow Ninja</h3>
-            <p>Stealth action game in feudal Japan.</p>
-            <span class="badge green">Play Now</span>
-            <button class="btn-play" onclick="playGame(this)">▶️ Play Now</button>
-        </div>
-
-        <!-- Game 8 -->
-        <div class="game-card" data-game="Pirates Quest" data-url="https://www.crazygames.com/embed/pirates-quest">
-            <span class="icon">🏴‍☠️</span>
-            <h3>Pirates Quest</h3>
-            <p>Open-world pirate adventure with treasure hunting.</p>
-            <span class="badge orange">Coming Soon</span>
-            <button class="btn-play" onclick="playGame(this)">▶️ Play Now</button>
-        </div>
-
-        <!-- Game 9 -->
-        <div class="game-card" data-game="Moto Xtreme" data-url="https://www.gameflare.com/embed/moto-xtreme/">
-            <span class="icon">🏍️</span>
-            <h3>Moto Xtreme</h3>
-            <p>Extreme motorcycle racing with stunts.</p>
-            <span class="badge green">Play Now</span>
-            <button class="btn-play" onclick="playGame(this)">▶️ Play Now</button>
-        </div>
-
-        <!-- Game 10 -->
-        <div class="game-card" data-game="Bubble Shooter" data-url="https://www.crazygames.com/embed/bubble-shooter">
-            <span class="icon">🫧</span>
-            <h3>Bubble Shooter</h3>
-            <p>Classic bubble shooting puzzle game.</p>
-            <span class="badge green">Play Now</span>
-            <button class="btn-play" onclick="playGame(this)">▶️ Play Now</button>
-        </div>
-
-        <!-- Game 11 -->
-        <div class="game-card" data-game="Five Nights Survival" data-url="https://www.gameflare.com/embed/five-nights-survival/">
-            <span class="icon">🐻</span>
-            <h3>Five Nights Survival</h3>
-            <p>Horror survival game with terrifying nights.</p>
-            <span class="badge orange">Coming Soon</span>
-            <button class="btn-play" onclick="playGame(this)">▶️ Play Now</button>
-        </div>
-
-        <!-- Game 12 -->
-        <div class="game-card" data-game="Fantasy Realms" data-url="https://www.crazygames.com/embed/fantasy-realms">
-            <span class="icon">🧙</span>
-            <h3>Fantasy Realms</h3>
-            <p>Deep RPG with magic, monsters, and epic storylines.</p>
-            <span class="badge green">Play Now</span>
-            <button class="btn-play" onclick="playGame(this)">▶️ Play Now</button>
+        <!-- Free Game 3 -->
+        <div class="game-card">
+            <div class="game-icon">⚽</div>
+            <h3>Rocket League</h3>
+            <p>Football meets high-speed racing.</p>
+            <span class="price-tag free">FREE</span>
+            <a href="#" class="btn">Download Free</a>
         </div>
     </div>
 
-    <!-- ===== GAME PLAYER ===== -->
-    <div class="game-player-overlay" id="gamePlayerOverlay">
-        <div class="game-player-container">
-            <div class="game-player-header">
-                <h3 id="gameTitle">🎮 Playing: CyberQuest 2026</h3>
-                <button class="close-game-btn" onclick="closeGame()">✕ Close Game</button>
-            </div>
-            <div class="game-player-body">
-                <iframe id="gameFrame" src="" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
-
+    <!-- ===== FOOTER ===== -->
     <footer>
         <div class="footer-content">
             <div>
-                <h4>🎮 SyedGames</h4>
-                <p>Your ultimate gaming hub for free games, reviews, and news.</p>
+                <h4>🎮 QEVRANO PC</h4>
+                <p>Your premium destination for PC gaming discoveries.</p>
             </div>
             <div>
                 <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
                 <a href="games.html">Games</a>
                 <a href="about.html">About</a>
                 <a href="contact.html">Contact</a>
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="terms.html">Terms & Conditions</a>
+            </div>
+            <div>
+                <h4>Categories</h4>
+                <a href="#">Action</a>
+                <a href="#">Adventure</a>
+                <a href="#">Racing</a>
+                <a href="#">Free Games</a>
             </div>
             <div>
                 <h4>Connect</h4>
@@ -194,40 +140,14 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 SyedGames. Built with ❤️ on GitHub Pages.</p>
+            <p>&copy; 2026 QEVRANO PC GAMES. Built with ❤️ on GitHub Pages.</p>
         </div>
     </footer>
 
     <script>
         function toggleMenu() {
-            document.getElementById('mainNav').classList.toggle('open');
+            document.querySelector('nav').classList.toggle('open');
         }
-
-        function playGame(button) {
-            const card = button.closest('.game-card');
-            const gameUrl = card.getAttribute('data-url');
-            const gameTitle = card.getAttribute('data-game') || 'Game';
-            const iframe = document.getElementById('gameFrame');
-            const titleElement = document.getElementById('gameTitle');
-            iframe.src = gameUrl;
-            titleElement.textContent = '🎮 Playing: ' + gameTitle;
-            document.getElementById('gamePlayerOverlay').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeGame() {
-            document.getElementById('gamePlayerOverlay').classList.remove('active');
-            document.getElementById('gameFrame').src = '';
-            document.body.style.overflow = 'auto';
-        }
-
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') closeGame();
-        });
-
-        document.getElementById('gamePlayerOverlay').addEventListener('click', function(e) {
-            if (e.target === this) closeGame();
-        });
     </script>
 </body>
 </html>
