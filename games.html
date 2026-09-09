@@ -9,13 +9,15 @@
         .games-hero {
             text-align: center;
             padding: 80px 20px 40px;
-            background: linear-gradient(135deg, #0f3460, #1a1a2e);
+            background: linear-gradient(135deg, #1a0000, #0a0000);
+            border-bottom: 3px solid #cc0000;
         }
         .games-hero h1 {
             font-size: 48px;
         }
         .games-hero h1 span {
-            color: #e94560;
+            color: #cc0000;
+            text-shadow: 0 0 30px rgba(204, 0, 0, 0.4);
         }
         .games-hero p {
             color: #aaa;
@@ -49,100 +51,112 @@
     </div>
 
     <div class="categories">
-        <button class="category-btn active" onclick="filterGames('all')">All</button>
-        <button class="category-btn" onclick="filterGames('action')">⚔️ Action</button>
-        <button class="category-btn" onclick="filterGames('adventure')">🗺️ Adventure</button>
-        <button class="category-btn" onclick="filterGames('racing')">🏎️ Racing</button>
-        <button class="category-btn" onclick="filterGames('horror')">🧟 Horror</button>
-        <button class="category-btn" onclick="filterGames('arcade')">👾 Arcade</button>
-        <button class="category-btn" onclick="filterGames('rpg')">🎯 RPG</button>
+        <button class="category-btn active" onclick="filterGames('all', this)">All</button>
+        <button class="category-btn" onclick="filterGames('action', this)">⚔️ Action</button>
+        <button class="category-btn" onclick="filterGames('adventure', this)">🗺️ Adventure</button>
+        <button class="category-btn" onclick="filterGames('racing', this)">🏎️ Racing</button>
+        <button class="category-btn" onclick="filterGames('horror', this)">🧟 Horror</button>
+        <button class="category-btn" onclick="filterGames('arcade', this)">👾 Arcade</button>
+        <button class="category-btn" onclick="filterGames('rpg', this)">🎯 RPG</button>
     </div>
 
     <div class="games-grid" id="gamesGrid">
-        <!-- All game cards here (same as index.html but with all games) -->
-        <div class="game-card" data-category="action">
+        <div class="game-card" data-category="action" data-game="CyberQuest 2026" data-url="https://www.gameflare.com/embed/cyber-quest/">
             <span class="icon">🎮</span>
             <h3>CyberQuest 2026</h3>
             <p>Immersive open-world RPG set in a dystopian future.</p>
             <span class="badge orange">Coming Soon</span>
-            <button class="btn-play" onclick="playGame('https://www.gameflare.com/embed/cyber-quest/')">Play Now</button>
+            <button class="btn-play" onclick="playGame(this)">▶️ Play Now</button>
         </div>
-        <div class="game-card" data-category="adventure">
+        <div class="game-card" data-category="adventure" data-game="Dragon's Legacy" data-url="https://www.crazygames.com/embed/dragon-legacy">
             <span class="icon">⚔️</span>
             <h3>Dragon's Legacy</h3>
             <p>Epic fantasy adventure with legendary dragon battles.</p>
             <span class="badge green">Play Now</span>
-            <button class="btn-play" onclick="playGame('https://www.crazygames.com/embed/dragon-legacy')">Play Now</button>
+            <button class="btn-play" onclick="playGame(this)">▶️ Play Now</button>
         </div>
-        <div class="game-card" data-category="racing">
+        <div class="game-card" data-category="racing" data-game="Turbo Drift" data-url="https://www.gameflare.com/embed/turbo-drift/">
             <span class="icon">🏎️</span>
             <h3>Turbo Drift</h3>
             <p>High-speed racing game with drift mechanics.</p>
             <span class="badge green">Play Now</span>
-            <button class="btn-play" onclick="playGame('https://www.gameflare.com/embed/turbo-drift/')">Play Now</button>
+            <button class="btn-play" onclick="playGame(this)">▶️ Play Now</button>
         </div>
-        <div class="game-card" data-category="horror">
+        <div class="game-card" data-category="horror" data-game="Zombie Outbreak" data-url="https://www.crazygames.com/embed/zombie-outbreak">
             <span class="icon">🧟</span>
             <h3>Zombie Outbreak</h3>
             <p>Survival horror with co-op gameplay and terrifying enemies.</p>
             <span class="badge orange">Coming Soon</span>
-            <button class="btn-play" onclick="playGame('https://www.crazygames.com/embed/zombie-outbreak')">Play Now</button>
+            <button class="btn-play" onclick="playGame(this)">▶️ Play Now</button>
         </div>
-        <div class="game-card" data-category="arcade">
+        <div class="game-card" data-category="arcade" data-game="Retro Rampage" data-url="https://www.gameflare.com/embed/retro-rampage/">
             <span class="icon">👾</span>
             <h3>Retro Rampage</h3>
             <p>Classic arcade-style shooter with modern graphics.</p>
             <span class="badge green">Play Now</span>
-            <button class="btn-play" onclick="playGame('https://www.gameflare.com/embed/retro-rampage/')">Play Now</button>
+            <button class="btn-play" onclick="playGame(this)">▶️ Play Now</button>
         </div>
-        <div class="game-card" data-category="rpg">
+        <div class="game-card" data-category="rpg" data-game="Space Rogue" data-url="https://www.crazygames.com/embed/space-rogue">
             <span class="icon">🚀</span>
             <h3>Space Rogue</h3>
             <p>Fast-paced space shooter with stunning visuals.</p>
             <span class="badge green">Play Now</span>
-            <button class="btn-play" onclick="playGame('https://www.crazygames.com/embed/space-rogue')">Play Now</button>
+            <button class="btn-play" onclick="playGame(this)">▶️ Play Now</button>
         </div>
-        <div class="game-card" data-category="action">
+        <div class="game-card" data-category="action" data-game="Shadow Ninja" data-url="https://www.gameflare.com/embed/shadow-ninja/">
             <span class="icon">🥷</span>
             <h3>Shadow Ninja</h3>
             <p>Stealth action game in feudal Japan.</p>
             <span class="badge green">Play Now</span>
-            <button class="btn-play" onclick="playGame('https://www.gameflare.com/embed/shadow-ninja/')">Play Now</button>
+            <button class="btn-play" onclick="playGame(this)">▶️ Play Now</button>
         </div>
-        <div class="game-card" data-category="adventure">
+        <div class="game-card" data-category="adventure" data-game="Pirates Quest" data-url="https://www.crazygames.com/embed/pirates-quest">
             <span class="icon">🏴‍☠️</span>
             <h3>Pirates Quest</h3>
             <p>Open-world pirate adventure with treasure hunting.</p>
             <span class="badge orange">Coming Soon</span>
-            <button class="btn-play" onclick="playGame('https://www.crazygames.com/embed/pirates-quest')">Play Now</button>
+            <button class="btn-play" onclick="playGame(this)">▶️ Play Now</button>
         </div>
-        <div class="game-card" data-category="racing">
+        <div class="game-card" data-category="racing" data-game="Moto Xtreme" data-url="https://www.gameflare.com/embed/moto-xtreme/">
             <span class="icon">🏍️</span>
             <h3>Moto Xtreme</h3>
             <p>Extreme motorcycle racing with stunts.</p>
             <span class="badge green">Play Now</span>
-            <button class="btn-play" onclick="playGame('https://www.gameflare.com/embed/moto-xtreme/')">Play Now</button>
+            <button class="btn-play" onclick="playGame(this)">▶️ Play Now</button>
         </div>
-        <div class="game-card" data-category="arcade">
+        <div class="game-card" data-category="arcade" data-game="Bubble Shooter" data-url="https://www.crazygames.com/embed/bubble-shooter">
             <span class="icon">🫧</span>
             <h3>Bubble Shooter</h3>
             <p>Classic bubble shooting puzzle game.</p>
             <span class="badge green">Play Now</span>
-            <button class="btn-play" onclick="playGame('https://www.crazygames.com/embed/bubble-shooter')">Play Now</button>
+            <button class="btn-play" onclick="playGame(this)">▶️ Play Now</button>
         </div>
-        <div class="game-card" data-category="horror">
+        <div class="game-card" data-category="horror" data-game="Five Nights Survival" data-url="https://www.gameflare.com/embed/five-nights-survival/">
             <span class="icon">🐻</span>
             <h3>Five Nights Survival</h3>
             <p>Horror survival game with terrifying nights.</p>
             <span class="badge orange">Coming Soon</span>
-            <button class="btn-play" onclick="playGame('https://www.gameflare.com/embed/five-nights-survival/')">Play Now</button>
+            <button class="btn-play" onclick="playGame(this)">▶️ Play Now</button>
         </div>
-        <div class="game-card" data-category="rpg">
+        <div class="game-card" data-category="rpg" data-game="Fantasy Realms" data-url="https://www.crazygames.com/embed/fantasy-realms">
             <span class="icon">🧙</span>
             <h3>Fantasy Realms</h3>
             <p>Deep RPG with magic, monsters, and epic storylines.</p>
             <span class="badge green">Play Now</span>
-            <button class="btn-play" onclick="playGame('https://www.crazygames.com/embed/fantasy-realms')">Play Now</button>
+            <button class="btn-play" onclick="playGame(this)">▶️ Play Now</button>
+        </div>
+    </div>
+
+    <!-- Game Player -->
+    <div class="game-player-overlay" id="gamePlayerOverlay">
+        <div class="game-player-container">
+            <div class="game-player-header">
+                <h3 id="gameTitle2">🎮 Playing: Game</h3>
+                <button class="close-game-btn" onclick="closeGame2()">✕ Close Game</button>
+            </div>
+            <div class="game-player-body">
+                <iframe id="gameFrame2" src="" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+            </div>
         </div>
     </div>
 
@@ -177,9 +191,33 @@
         function toggleMenu() {
             document.getElementById('mainNav').classList.toggle('open');
         }
-        function playGame(url) {
-            window.open(url, '_blank');
+
+        function playGame(button) {
+            const card = button.closest('.game-card');
+            const gameUrl = card.getAttribute('data-url');
+            const gameTitle = card.getAttribute('data-game') || 'Game';
+            const iframe = document.getElementById('gameFrame2');
+            const titleElement = document.getElementById('gameTitle2');
+            iframe.src = gameUrl;
+            titleElement.textContent = '🎮 Playing: ' + gameTitle;
+            document.getElementById('gamePlayerOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
+
+        function closeGame2() {
+            document.getElementById('gamePlayerOverlay').classList.remove('active');
+            document.getElementById('gameFrame2').src = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeGame2();
+        });
+
+        document.getElementById('gamePlayerOverlay').addEventListener('click', function(e) {
+            if (e.target === this) closeGame2();
+        });
+
         function searchGames() {
             const input = document.getElementById('searchInput').value.toLowerCase();
             const cards = document.querySelectorAll('.game-card');
@@ -193,9 +231,10 @@
                 }
             });
         }
-        function filterGames(category) {
-            document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+
+        function filterGames(category, btn) {
+            document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
             const cards = document.querySelectorAll('.game-card');
             cards.forEach(card => {
                 const cardCategory = card.getAttribute('data-category');
