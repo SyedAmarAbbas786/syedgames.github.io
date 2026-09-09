@@ -1,679 +1,885 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Games - SyedGames</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* ===== PAGE HERO ===== */
-        .page-hero {
-            text-align: center;
-            padding: 80px 20px 50px;
-            background: linear-gradient(135deg, rgba(0,0,0,0.85), rgba(10,0,0,0.9)),
-                        url('https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1920&h=400&fit=crop&crop=center') center/cover no-repeat;
-            border-bottom: 3px solid rgba(255, 0, 0, 0.3);
-        }
-        .page-hero h1 {
-            font-size: 48px;
-            font-weight: 900;
-        }
-        .page-hero h1 span {
-            color: #ff0000;
-            text-shadow: 0 0 40px rgba(255, 0, 0, 0.3);
-        }
-        .page-hero p {
-            color: #aaa;
-            max-width: 600px;
-            margin: 10px auto 0;
-            font-size: 18px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        /* ===== GAME BROWSER TOOLBAR ===== */
-        .game-browser-toolbar {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 30px 40px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        .browser-search {
-            flex: 1;
-            min-width: 250px;
-            position: relative;
-        }
-        .browser-search input {
-            width: 100%;
-            padding: 14px 20px 14px 50px;
-            background: #0a0a0a;
-            border: 2px solid #1a1a1a;
-            border-radius: 50px;
-            color: #fff;
-            font-size: 15px;
-            transition: all 0.3s;
-            outline: none;
-        }
-        .browser-search input:focus {
-            border-color: #ff0000;
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.08);
-        }
-        .browser-search input::placeholder {
-            color: #444;
-        }
-        .browser-search .search-icon {
-            position: absolute;
-            left: 18px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #444;
-            font-size: 18px;
-        }
-        .browser-filter {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        .browser-filter .filter-btn {
-            padding: 10px 22px;
-            background: #0a0a0a;
-            border: 2px solid #1a1a1a;
-            border-radius: 30px;
-            color: #aaa;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-family: inherit;
-        }
-        .browser-filter .filter-btn:hover {
-            border-color: #ff0000;
-            color: #fff;
-        }
-        .browser-filter .filter-btn.active {
-            background: #ff0000;
-            color: #fff;
-            border-color: #ff0000;
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.2);
-        }
+<title>Games - QEVRANO PC GAMES</title>
 
-        /* ===== GAME COUNT ===== */
-        .game-count {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 40px 10px;
-            color: #666;
-            font-size: 14px;
-            font-weight: 300;
-        }
-        .game-count span {
-            color: #ff0000;
-            font-weight: 700;
-        }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        /* ===== GAME GRID ===== */
-        .games-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 25px;
-            padding: 20px 40px 60px;
-            max-width: 1300px;
-            margin: 0 auto;
-        }
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    color:#fff;
+    background:
+        linear-gradient(rgba(5,8,15,.92),rgba(5,8,15,.96)),
+        radial-gradient(circle at top,#241010,#05080f 65%);
+    min-height:100vh;
+}
 
-        /* ===== GAME CARD ===== */
-        .game-card {
-            background: linear-gradient(145deg, #0d0d0d, #050505);
-            border-radius: 16px;
-            overflow: hidden;
-            border: 2px solid #151515;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
-            position: relative;
-            opacity: 0;
-            transform: translateY(30px) scale(0.97);
-            animation: cardPop 0.5s ease forwards;
-        }
-        .game-card:nth-child(1) { animation-delay: 0.05s; }
-        .game-card:nth-child(2) { animation-delay: 0.1s; }
-        .game-card:nth-child(3) { animation-delay: 0.15s; }
-        .game-card:nth-child(4) { animation-delay: 0.2s; }
-        .game-card:nth-child(5) { animation-delay: 0.25s; }
-        .game-card:nth-child(6) { animation-delay: 0.3s; }
-        .game-card:nth-child(7) { animation-delay: 0.35s; }
-        .game-card:nth-child(8) { animation-delay: 0.4s; }
-        .game-card:nth-child(9) { animation-delay: 0.45s; }
-        .game-card:nth-child(10) { animation-delay: 0.5s; }
-        .game-card:nth-child(11) { animation-delay: 0.55s; }
-        .game-card:nth-child(12) { animation-delay: 0.6s; }
+/* ================= HEADER ================= */
 
-        @keyframes cardPop {
-            0%   { opacity: 0; transform: translateY(30px) scale(0.97); }
-            100% { opacity: 1; transform: translateY(0) scale(1); }
-        }
-        .game-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            border-color: #ff0000;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 0, 0, 0.06);
-        }
-        .game-card .game-image-wrapper {
-            position: relative;
-            overflow: hidden;
-            background: #0a0a0a;
-        }
-        .game-card .game-image {
-            width: 100%;
-            height: 170px;
-            object-fit: cover;
-            transition: all 0.5s ease;
-            display: block;
-        }
-        .game-card:hover .game-image {
-            transform: scale(1.08);
-        }
-        .game-card .game-badge {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            padding: 4px 14px;
-            border-radius: 20px;
-            font-size: 10px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(5px);
-            color: #fff;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        .game-card .game-badge.hot { background: rgba(255, 0, 0, 0.9); color: #fff; }
-        .game-card .game-badge.new { background: rgba(0, 200, 83, 0.9); color: #fff; }
-        .game-card .game-badge.popular { background: rgba(255, 136, 0, 0.9); color: #fff; }
-        .game-card .game-info {
-            padding: 18px 20px 20px;
-        }
-        .game-card .game-info h3 {
-            color: #fff;
-            font-size: 18px;
-            font-weight: 800;
-            margin-bottom: 6px;
-            transition: color 0.3s;
-        }
-        .game-card:hover .game-info h3 {
-            color: #ff0000;
-        }
-        .game-card .game-info .game-desc {
-            color: #666;
-            font-size: 13px;
-            line-height: 1.5;
-            margin-bottom: 12px;
-            font-weight: 300;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-        .game-card .game-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .game-card .game-meta .badge {
-            font-size: 10px;
-            padding: 4px 14px;
-            border-radius: 20px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .game-card .game-meta .badge.free { background: #00cc66; color: #fff; }
-        .game-card .game-meta .badge.premium { background: #ff0000; color: #fff; }
-        .game-card .game-meta .badge.soon { background: #ff8800; color: #fff; }
-        .game-card .btn-play-small {
-            background: linear-gradient(135deg, #ff0000, #cc0000);
-            color: #fff;
-            padding: 8px 22px;
-            border: none;
-            border-radius: 30px;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: inherit;
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.1);
-        }
-        .game-card .btn-play-small:hover {
-            transform: scale(1.08);
-            box-shadow: 0 8px 30px rgba(255, 0, 0, 0.3);
-        }
-        .game-card .btn-play-small:active {
-            transform: scale(0.95);
-        }
+header{
+    height:70px;
+    background:rgba(10,10,15,.96);
+    border-bottom:1px solid #2b2b35;
+    display:flex;
+    align-items:center;
+    padding:0 25px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
 
-        /* ===== NO GAMES FOUND ===== */
-        .no-games {
-            text-align: center;
-            padding: 60px 20px;
-            color: #666;
-        }
-        .no-games .icon { font-size: 60px; margin-bottom: 15px; }
-        .no-games h3 { color: #fff; font-size: 24px; margin-bottom: 10px; }
+.logo{
+    font-size:25px;
+    font-weight:900;
+    color:#ff2020;
+    letter-spacing:1px;
+}
 
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 992px) {
-            .game-browser-toolbar {
-                padding: 20px 20px 15px;
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .browser-filter { justify-content: center; }
-            .games-grid {
-                padding: 15px 20px 40px;
-                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-                gap: 20px;
-            }
-        }
-        @media (max-width: 768px) {
-            .page-hero h1 { font-size: 32px; }
-            .games-grid {
-                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-                gap: 15px;
-                padding: 10px 15px 30px;
-            }
-            .game-card .game-image { height: 130px; }
-            .game-card .game-info { padding: 14px 15px 16px; }
-            .game-card .game-info h3 { font-size: 16px; }
-            .game-card .game-meta { flex-direction: column; align-items: stretch; }
-            .game-card .btn-play-small { width: 100%; padding: 10px; }
-            .browser-filter .filter-btn { padding: 8px 16px; font-size: 11px; }
-        }
-        @media (max-width: 480px) {
-            .games-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 12px;
-            }
-            .game-card .game-image { height: 100px; }
-            .game-card .game-info h3 { font-size: 14px; }
-            .game-card .game-info .game-desc { font-size: 11px; -webkit-line-clamp: 1; }
-        }
-    </style>
+.menu-btn{
+    margin-left:auto;
+    width:42px;
+    height:42px;
+    border:1px solid #333;
+    background:#15151d;
+    color:#fff;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:22px;
+}
+
+.menu-btn:hover{
+    background:#ff2020;
+}
+
+/* ================= NAV ================= */
+
+nav{
+    position:fixed;
+    top:70px;
+    right:-280px;
+    width:280px;
+    height:calc(100vh - 70px);
+    background:#0d0d14;
+    border-left:1px solid #292933;
+    padding:25px;
+    transition:.3s;
+    z-index:999;
+}
+
+nav.open{
+    right:0;
+}
+
+nav a{
+    display:block;
+    text-decoration:none;
+    color:#ddd;
+    padding:14px 12px;
+    margin-bottom:5px;
+    border-radius:7px;
+}
+
+nav a:hover{
+    background:#191923;
+    color:#ff3030;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    text-align:center;
+    padding:55px 20px 35px;
+}
+
+.hero h1{
+    font-size:42px;
+    color:#fff;
+    margin-bottom:12px;
+}
+
+.hero h1 span{
+    color:#ff2020;
+}
+
+.hero p{
+    color:#aaa;
+    font-size:16px;
+}
+
+/* ================= FILTER ================= */
+
+.filters{
+    width:92%;
+    max-width:1200px;
+    margin:0 auto 30px;
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.search-box{
+    flex:1;
+    min-width:220px;
+}
+
+.search-box input{
+    width:100%;
+    padding:13px 16px;
+    background:#111119;
+    color:#fff;
+    border:1px solid #333;
+    border-radius:8px;
+    outline:none;
+}
+
+.search-box input:focus{
+    border-color:#ff2020;
+}
+
+.filters button{
+    padding:13px 18px;
+    background:#111119;
+    color:#ddd;
+    border:1px solid #333;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.filters button:hover,
+.filters button.active{
+    background:#ff2020;
+    border-color:#ff2020;
+    color:#fff;
+}
+
+/* ================= GAMES GRID ================= */
+
+.games-container{
+    width:92%;
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+    padding-bottom:50px;
+}
+
+.game-card{
+    background:#111119;
+    border:1px solid #292933;
+    border-radius:12px;
+    overflow:hidden;
+    transition:.25s;
+}
+
+.game-card:hover{
+    transform:translateY(-5px);
+    border-color:#ff2020;
+    box-shadow:0 10px 30px rgba(255,0,0,.15);
+}
+
+.game-image{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    display:block;
+}
+
+.game-info{
+    padding:18px;
+}
+
+.game-info h2{
+    font-size:21px;
+    margin-bottom:8px;
+}
+
+.game-info p{
+    color:#999;
+    font-size:14px;
+    margin-bottom:15px;
+}
+
+.game-buttons{
+    display:flex;
+    gap:10px;
+}
+
+.game-buttons button{
+    flex:1;
+    padding:11px;
+    border:none;
+    border-radius:7px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.play-btn{
+    background:#ff2020;
+    color:#fff;
+}
+
+.play-btn:hover{
+    background:#d90000;
+}
+
+.details-btn{
+    background:#24242e;
+    color:#fff;
+}
+
+.details-btn:hover{
+    background:#33333e;
+}
+
+/* ================= NO RESULTS ================= */
+
+.no-results{
+    display:none;
+    text-align:center;
+    color:#999;
+    padding:50px 20px;
+    font-size:18px;
+}
+
+/* ================= PLAYER OVERLAY ================= */
+
+#gamePlayerOverlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.94);
+    z-index:5000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+#gamePlayerOverlay.active{
+    display:flex;
+}
+
+.player-box{
+    width:min(1100px,96vw);
+    height:min(760px,92vh);
+    background:#0c0c12;
+    border:1px solid #333;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 0 50px rgba(0,0,0,.8);
+    display:flex;
+    flex-direction:column;
+}
+
+.player-header{
+    min-height:55px;
+    background:#111119;
+    border-bottom:1px solid #292933;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 15px;
+}
+
+#gameTitle{
+    font-size:17px;
+    font-weight:bold;
+    color:#fff;
+}
+
+.close-game{
+    width:38px;
+    height:38px;
+    border:none;
+    border-radius:7px;
+    background:#ff2020;
+    color:#fff;
+    cursor:pointer;
+    font-size:21px;
+}
+
+.close-game:hover{
+    background:#d90000;
+}
+
+.game-frame-container{
+    flex:1;
+    background:#000;
+    position:relative;
+}
+
+#gameFrame{
+    width:100%;
+    height:100%;
+    border:0;
+    display:block;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    border-top:1px solid #292933;
+    background:#0a0a0f;
+    padding:25px;
+    text-align:center;
+    color:#777;
+    font-size:14px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:700px){
+
+    .hero h1{
+        font-size:31px;
+    }
+
+    .games-container{
+        grid-template-columns:1fr;
+    }
+
+    .game-image{
+        height:200px;
+    }
+
+    .player-box{
+        width:100%;
+        height:90vh;
+    }
+}
+</style>
 </head>
+
 <body>
 
-    <header>
-        <div class="logo">
-            <a href="index.html">Syed<span>Games</span></a>
-        </div>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="games.html" class="active">Games</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <a href="privacy.html">Privacy</a>
-            <a href="terms.html">Terms</a>
-        </nav>
-        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-    </header>
+<header>
 
-    <section class="page-hero">
-        <h1>🎮 <span>Game</span> Browser</h1>
-        <p>Discover and play the best free online games. Find your next favorite game!</p>
-    </section>
-
-    <!-- ===== TOOLBAR ===== -->
-    <div class="game-browser-toolbar">
-        <div class="browser-search">
-            <span class="search-icon">🔍</span>
-            <input type="text" id="searchInput" placeholder="Search games..." onkeyup="searchGames()">
-        </div>
-        <div class="browser-filter">
-            <button class="filter-btn active" onclick="filterGames('all', this)">All</button>
-            <button class="filter-btn" onclick="filterGames('action', this)">Action</button>
-            <button class="filter-btn" onclick="filterGames('adventure', this)">Adventure</button>
-            <button class="filter-btn" onclick="filterGames('racing', this)">Racing</button>
-            <button class="filter-btn" onclick="filterGames('horror', this)">Horror</button>
-            <button class="filter-btn" onclick="filterGames('arcade', this)">Arcade</button>
-            <button class="filter-btn" onclick="filterGames('rpg', this)">RPG</button>
-        </div>
+    <div class="logo">
+        QEVRANO PC GAMES
     </div>
 
-    <div class="game-count">
-        Showing <span id="gameCount">12</span> games
+    <button class="menu-btn" onclick="toggleMenu()">
+        ☰
+    </button>
+
+</header>
+
+<nav id="mainNav">
+
+    <a href="./index.html">Home</a>
+    <a href="./games.html">All Games</a>
+    <a href="./featured.html">Featured</a>
+    <a href="./popular.html">Popular</a>
+    <a href="./new-games.html">New Games</a>
+    <a href="./free-games.html">Free Games</a>
+    <a href="./paid-games.html">Paid Games</a>
+    <a href="./categories.html">Categories</a>
+    <a href="./about.html">About</a>
+    <a href="./contact.html">Contact</a>
+
+</nav>
+
+<section class="hero">
+
+    <h1>
+        PLAY <span>GAMES</span>
+    </h1>
+
+    <p>
+        Browse our collection and play supported games directly on QEVRANO.
+    </p>
+
+</section>
+
+<section class="filters">
+
+    <div class="search-box">
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search games..."
+            oninput="filterGames()">
     </div>
 
-    <!-- ===== GAMES GRID ===== -->
-    <div class="games-grid" id="gamesGrid">
-        <!-- Game 1 - CyberQuest 2026 -->
-        <div class="game-card" data-category="action" data-game="CyberQuest 2026" data-url="https://www.gameflare.com/embed/cyber-quest/">
-            <div class="game-image-wrapper">
-                <img src="https://img.gamedistribution.com/7a4d8c7c7e3e4f5b8c9d0e1f2a3b4c5d-512x384.jpeg" alt="CyberQuest 2026" class="game-image" onerror="this.src='https://via.placeholder.com/400x200/1a1a1a/ff0000?text=CyberQuest'">
-                <span class="game-badge hot">🔥 Hot</span>
+    <button class="active" onclick="setCategory('all',this)">
+        All
+    </button>
+
+    <button onclick="setCategory('racing',this)">
+        Racing
+    </button>
+
+    <button onclick="setCategory('action',this)">
+        Action
+    </button>
+
+    <button onclick="setCategory('adventure',this)">
+        Adventure
+    </button>
+
+</section>
+
+<main>
+
+<div class="games-container" id="gamesContainer">
+
+    <!-- GAME 1 -->
+
+    <div
+        class="game-card"
+        data-category="racing"
+        data-name="Turbo Drift">
+
+        <img
+            class="game-image"
+            src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1200&q=80"
+            alt="Turbo Drift">
+
+        <div class="game-info">
+
+            <h2>Turbo Drift</h2>
+
+            <p>
+                High-speed racing action.
+            </p>
+
+            <div class="game-buttons">
+
+                <button
+                    class="play-btn"
+                    onclick="playGame(
+                    'https://html5.gamedistribution.com/ed65e4198fe74fdbb0b2ac015dd81128/',
+                    'Turbo Drift'
+                    )">
+                    ▶ PLAY
+                </button>
+
+                <button
+                    class="details-btn"
+                    onclick="showDetails('Turbo Drift')">
+                    DETAILS
+                </button>
+
             </div>
-            <div class="game-info">
-                <h3>CyberQuest 2026</h3>
-                <p class="game-desc">Immersive open-world RPG set in a dystopian future.</p>
-                <div class="game-meta">
-                    <span class="badge soon">Coming Soon</span>
-                    <button class="btn-play-small" onclick="playGame('https://www.gameflare.com/embed/cyber-quest/', 'CyberQuest 2026')">▶ Play Now</button>
-                </div>
-            </div>
+
         </div>
 
-        <!-- Game 2 - Dragon's Legacy -->
-        <div class="game-card" data-category="adventure" data-game="Dragon's Legacy" data-url="https://www.crazygames.com/embed/dragon-legacy">
-            <div class="game-image-wrapper">
-                <img src="https://img.gamedistribution.com/8b5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a-512x384.jpeg" alt="Dragon's Legacy" class="game-image" onerror="this.src='https://via.placeholder.com/400x200/1a1a1a/ff0000?text=Dragon+Legacy'">
-                <span class="game-badge popular">⭐ Popular</span>
-            </div>
-            <div class="game-info">
-                <h3>Dragon's Legacy</h3>
-                <p class="game-desc">Epic fantasy adventure with legendary dragon battles.</p>
-                <div class="game-meta">
-                    <span class="badge free">Free</span>
-                    <button class="btn-play-small" onclick="playGame('https://www.crazygames.com/embed/dragon-legacy', 'Dragon\'s Legacy')">▶ Play Now</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Game 3 - Turbo Drift -->
-        <div class="game-card" data-category="racing" data-game="Turbo Drift" data-url="https://www.gameflare.com/embed/turbo-drift/">
-            <div class="game-image-wrapper">
-                <img src="https://img.gamedistribution.com/9c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f-512x384.jpeg" alt="Turbo Drift" class="game-image" onerror="this.src='https://via.placeholder.com/400x200/1a1a1a/ff0000?text=Turbo+Drift'">
-                <span class="game-badge new">🆕 New</span>
-            </div>
-            <div class="game-info">
-                <h3>Turbo Drift</h3>
-                <p class="game-desc">High-speed racing game with drift mechanics.</p>
-                <div class="game-meta">
-                    <span class="badge free">Free</span>
-                    <button class="btn-play-small" onclick="playGame('https://www.gameflare.com/embed/turbo-drift/', 'Turbo Drift')">▶ Play Now</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Game 4 - Zombie Outbreak -->
-        <div class="game-card" data-category="horror" data-game="Zombie Outbreak" data-url="https://www.crazygames.com/embed/zombie-outbreak">
-            <div class="game-image-wrapper">
-                <img src="https://img.gamedistribution.com/ad7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a-512x384.jpeg" alt="Zombie Outbreak" class="game-image" onerror="this.src='https://via.placeholder.com/400x200/1a1a1a/ff0000?text=Zombie+Outbreak'">
-                <span class="game-badge hot">🔥 Hot</span>
-            </div>
-            <div class="game-info">
-                <h3>Zombie Outbreak</h3>
-                <p class="game-desc">Survival horror with co-op gameplay and terrifying enemies.</p>
-                <div class="game-meta">
-                    <span class="badge soon">Coming Soon</span>
-                    <button class="btn-play-small" onclick="playGame('https://www.crazygames.com/embed/zombie-outbreak', 'Zombie Outbreak')">▶ Play Now</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Game 5 - Retro Rampage -->
-        <div class="game-card" data-category="arcade" data-game="Retro Rampage" data-url="https://www.gameflare.com/embed/retro-rampage/">
-            <div class="game-image-wrapper">
-                <img src="https://img.gamedistribution.com/be8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b-512x384.jpeg" alt="Retro Rampage" class="game-image" onerror="this.src='https://via.placeholder.com/400x200/1a1a1a/ff0000?text=Retro+Rampage'">
-                <span class="game-badge popular">⭐ Popular</span>
-            </div>
-            <div class="game-info">
-                <h3>Retro Rampage</h3>
-                <p class="game-desc">Classic arcade-style shooter with modern graphics.</p>
-                <div class="game-meta">
-                    <span class="badge free">Free</span>
-                    <button class="btn-play-small" onclick="playGame('https://www.gameflare.com/embed/retro-rampage/', 'Retro Rampage')">▶ Play Now</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Game 6 - Space Rogue -->
-        <div class="game-card" data-category="rpg" data-game="Space Rogue" data-url="https://www.crazygames.com/embed/space-rogue">
-            <div class="game-image-wrapper">
-                <img src="https://img.gamedistribution.com/cf9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c-512x384.jpeg" alt="Space Rogue" class="game-image" onerror="this.src='https://via.placeholder.com/400x200/1a1a1a/ff0000?text=Space+Rogue'">
-                <span class="game-badge new">🆕 New</span>
-            </div>
-            <div class="game-info">
-                <h3>Space Rogue</h3>
-                <p class="game-desc">Fast-paced space shooter with stunning visuals.</p>
-                <div class="game-meta">
-                    <span class="badge free">Free</span>
-                    <button class="btn-play-small" onclick="playGame('https://www.crazygames.com/embed/space-rogue', 'Space Rogue')">▶ Play Now</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Game 7 - Shadow Ninja -->
-        <div class="game-card" data-category="action" data-game="Shadow Ninja" data-url="https://www.gameflare.com/embed/shadow-ninja/">
-            <div class="game-image-wrapper">
-                <img src="https://img.gamedistribution.com/d0ab1c2d3e4f5a6b7c8d9e0f1a2b3c4d-512x384.jpeg" alt="Shadow Ninja" class="game-image" onerror="this.src='https://via.placeholder.com/400x200/1a1a1a/ff0000?text=Shadow+Ninja'">
-                <span class="game-badge hot">🔥 Hot</span>
-            </div>
-            <div class="game-info">
-                <h3>Shadow Ninja</h3>
-                <p class="game-desc">Stealth action game in feudal Japan.</p>
-                <div class="game-meta">
-                    <span class="badge free">Free</span>
-                    <button class="btn-play-small" onclick="playGame('https://www.gameflare.com/embed/shadow-ninja/', 'Shadow Ninja')">▶ Play Now</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Game 8 - Pirates Quest -->
-        <div class="game-card" data-category="adventure" data-game="Pirates Quest" data-url="https://www.crazygames.com/embed/pirates-quest">
-            <div class="game-image-wrapper">
-                <img src="https://img.gamedistribution.com/e1bc2d3e4f5a6b7c8d9e0f1a2b3c4d5e-512x384.jpeg" alt="Pirates Quest" class="game-image" onerror="this.src='https://via.placeholder.com/400x200/1a1a1a/ff0000?text=Pirates+Quest'">
-                <span class="game-badge new">🆕 New</span>
-            </div>
-            <div class="game-info">
-                <h3>Pirates Quest</h3>
-                <p class="game-desc">Open-world pirate adventure with treasure hunting.</p>
-                <div class="game-meta">
-                    <span class="badge soon">Coming Soon</span>
-                    <button class="btn-play-small" onclick="playGame('https://www.crazygames.com/embed/pirates-quest', 'Pirates Quest')">▶ Play Now</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Game 9 - Moto Xtreme -->
-        <div class="game-card" data-category="racing" data-game="Moto Xtreme" data-url="https://www.gameflare.com/embed/moto-xtreme/">
-            <div class="game-image-wrapper">
-                <img src="https://img.gamedistribution.com/f2cd3e4f5a6b7c8d9e0f1a2b3c4d5e6f-512x384.jpeg" alt="Moto Xtreme" class="game-image" onerror="this.src='https://via.placeholder.com/400x200/1a1a1a/ff0000?text=Moto+Xtreme'">
-                <span class="game-badge popular">⭐ Popular</span>
-            </div>
-            <div class="game-info">
-                <h3>Moto Xtreme</h3>
-                <p class="game-desc">Extreme motorcycle racing with stunts.</p>
-                <div class="game-meta">
-                    <span class="badge free">Free</span>
-                    <button class="btn-play-small" onclick="playGame('https://www.gameflare.com/embed/moto-xtreme/', 'Moto Xtreme')">▶ Play Now</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Game 10 - Bubble Shooter -->
-        <div class="game-card" data-category="arcade" data-game="Bubble Shooter" data-url="https://www.crazygames.com/embed/bubble-shooter">
-            <div class="game-image-wrapper">
-                <img src="https://img.gamedistribution.com/3de4f5a6b7c8d9e0f1a2b3c4d5e6f7a8-512x384.jpeg" alt="Bubble Shooter" class="game-image" onerror="this.src='https://via.placeholder.com/400x200/1a1a1a/ff0000?text=Bubble+Shooter'">
-                <span class="game-badge hot">🔥 Hot</span>
-            </div>
-            <div class="game-info">
-                <h3>Bubble Shooter</h3>
-                <p class="game-desc">Classic bubble shooting puzzle game.</p>
-                <div class="game-meta">
-                    <span class="badge free">Free</span>
-                    <button class="btn-play-small" onclick="playGame('https://www.crazygames.com/embed/bubble-shooter', 'Bubble Shooter')">▶ Play Now</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Game 11 - Five Nights Survival -->
-        <div class="game-card" data-category="horror" data-game="Five Nights Survival" data-url="https://www.gameflare.com/embed/five-nights-survival/">
-            <div class="game-image-wrapper">
-                <img src="https://img.gamedistribution.com/4ef5a6b7c8d9e0f1a2b3c4d5e6f7a8b9-512x384.jpeg" alt="Five Nights Survival" class="game-image" onerror="this.src='https://via.placeholder.com/400x200/1a1a1a/ff0000?text=Five+Nights'">
-                <span class="game-badge new">🆕 New</span>
-            </div>
-            <div class="game-info">
-                <h3>Five Nights Survival</h3>
-                <p class="game-desc">Horror survival game with terrifying nights.</p>
-                <div class="game-meta">
-                    <span class="badge soon">Coming Soon</span>
-                    <button class="btn-play-small" onclick="playGame('https://www.gameflare.com/embed/five-nights-survival/', 'Five Nights Survival')">▶ Play Now</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Game 12 - Fantasy Realms -->
-        <div class="game-card" data-category="rpg" data-game="Fantasy Realms" data-url="https://www.crazygames.com/embed/fantasy-realms">
-            <div class="game-image-wrapper">
-                <img src="https://img.gamedistribution.com/5fa6b7c8d9e0f1a2b3c4d5e6f7a8b9c0-512x384.jpeg" alt="Fantasy Realms" class="game-image" onerror="this.src='https://via.placeholder.com/400x200/1a1a1a/ff0000?text=Fantasy+Realms'">
-                <span class="game-badge popular">⭐ Popular</span>
-            </div>
-            <div class="game-info">
-                <h3>Fantasy Realms</h3>
-                <p class="game-desc">Deep RPG with magic, monsters, and epic storylines.</p>
-                <div class="game-meta">
-                    <span class="badge free">Free</span>
-                    <button class="btn-play-small" onclick="playGame('https://www.crazygames.com/embed/fantasy-realms', 'Fantasy Realms')">▶ Play Now</button>
-                </div>
-            </div>
-        </div>
     </div>
 
-    <!-- ===== NO GAMES FOUND ===== -->
-    <div class="no-games" id="noGames" style="display:none;">
-        <div class="icon">🎮</div>
-        <h3>No Games Found</h3>
-        <p>Try adjusting your search or filter.</p>
+
+    <!-- GAME 2 -->
+
+    <div
+        class="game-card"
+        data-category="action"
+        data-name="Action Game">
+
+        <img
+            class="game-image"
+            src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80"
+            alt="Action Game">
+
+        <div class="game-info">
+
+            <h2>Action Game</h2>
+
+            <p>
+                Fast-paced gaming experience.
+            </p>
+
+            <div class="game-buttons">
+
+                <button
+                    class="play-btn"
+                    onclick="playGame(
+                    'https://html5.gamedistribution.com/ed65e4198fe74fdbb0b2ac015dd81128/',
+                    'Action Game'
+                    )">
+                    ▶ PLAY
+                </button>
+
+                <button
+                    class="details-btn"
+                    onclick="showDetails('Action Game')">
+                    DETAILS
+                </button>
+
+            </div>
+
+        </div>
+
     </div>
 
-    <!-- ===== GAME PLAYER OVERLAY ===== -->
-    <div class="game-player-overlay" id="gamePlayerOverlay">
-        <div class="game-player-container">
-            <div class="game-player-header">
-                <h3 id="gameTitle">🎮 Playing: CyberQuest 2026</h3>
-                <button class="close-game-btn" onclick="closeGame()">✕ Close</button>
+
+    <!-- GAME 3 -->
+
+    <div
+        class="game-card"
+        data-category="adventure"
+        data-name="Adventure Game">
+
+        <img
+            class="game-image"
+            src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?auto=format&fit=crop&w=1200&q=80"
+            alt="Adventure Game">
+
+        <div class="game-info">
+
+            <h2>Adventure Game</h2>
+
+            <p>
+                Explore a new world.
+            </p>
+
+            <div class="game-buttons">
+
+                <button
+                    class="play-btn"
+                    onclick="playGame(
+                    'https://html5.gamedistribution.com/ed65e4198fe74fdbb0b2ac015dd81128/',
+                    'Adventure Game'
+                    )">
+                    ▶ PLAY
+                </button>
+
+                <button
+                    class="details-btn"
+                    onclick="showDetails('Adventure Game')">
+                    DETAILS
+                </button>
+
             </div>
-            <div class="game-player-body">
-                <iframe id="gameFrame" src="" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
-            </div>
+
         </div>
+
     </div>
 
-    <!-- ===== FOOTER ===== -->
-    <footer>
-        <div class="footer-content">
-            <div>
-                <h4>🎮 SyedGames</h4>
-                <p>Your premium destination for free online games and gaming community.</p>
-            </div>
-            <div>
-                <h4>Quick Links</h4>
-                <a href="index.html">Home</a>
-                <a href="games.html">Games</a>
-                <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="terms.html">Terms & Conditions</a>
-            </div>
-            <div>
-                <h4>Connect</h4>
-                <a href="#">🐦 Twitter</a>
-                <a href="#">📺 YouTube</a>
-                <a href="#">🎮 Twitch</a>
-                <a href="#">📷 Instagram</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 SyedGames. Built with ❤️ on GitHub Pages.</p>
-        </div>
-    </footer>
 
-    <script>
-        function toggleMenu() {
-            document.querySelector('nav').classList.toggle('open');
+    <!-- GAME 4 -->
+
+    <div
+        class="game-card"
+        data-category="racing"
+        data-name="Speed Racing">
+
+        <img
+            class="game-image"
+            src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1200&q=80"
+            alt="Speed Racing">
+
+        <div class="game-info">
+
+            <h2>Speed Racing</h2>
+
+            <p>
+                Race against the clock.
+            </p>
+
+            <div class="game-buttons">
+
+                <button
+                    class="play-btn"
+                    onclick="playGame(
+                    'https://html5.gamedistribution.com/ed65e4198fe74fdbb0b2ac015dd81128/',
+                    'Speed Racing'
+                    )">
+                    ▶ PLAY
+                </button>
+
+                <button
+                    class="details-btn"
+                    onclick="showDetails('Speed Racing')">
+                    DETAILS
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="no-results" id="noResults">
+    No games found.
+</div>
+
+</main>
+
+
+<!-- ================= GAME PLAYER ================= -->
+
+<div id="gamePlayerOverlay">
+
+    <div class="player-box">
+
+        <div class="player-header">
+
+            <div id="gameTitle">
+                🎮 Playing: Game
+            </div>
+
+            <button
+                class="close-game"
+                onclick="closeGame()">
+                ✕
+            </button>
+
+        </div>
+
+        <div class="game-frame-container">
+
+            <iframe
+                id="gameFrame"
+                src=""
+                scrolling="none"
+                frameborder="0"
+                allow="fullscreen; autoplay; gamepad"
+                allowfullscreen>
+            </iframe>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<footer>
+
+    © 2026 QEVRANO PC GAMES — All Rights Reserved.
+
+</footer>
+
+
+<script>
+
+/* ================= MENU ================= */
+
+function toggleMenu(){
+
+    document
+        .getElementById('mainNav')
+        .classList.toggle('open');
+
+}
+
+
+/* ================= PLAY GAME ================= */
+
+function playGame(url,title){
+
+    if(!url || typeof url !== 'string'){
+
+        alert('Game URL not found!');
+
+        return;
+    }
+
+    const iframe =
+        document.getElementById('gameFrame');
+
+    const overlay =
+        document.getElementById('gamePlayerOverlay');
+
+    const titleElement =
+        document.getElementById('gameTitle');
+
+
+    if(!iframe || !overlay || !titleElement){
+
+        alert('Game player could not be loaded.');
+
+        return;
+    }
+
+
+    titleElement.textContent =
+        '🎮 Playing: ' + (title || 'Game');
+
+
+    iframe.src = url;
+
+    overlay.classList.add('active');
+
+    document.body.style.overflow = 'hidden';
+
+}
+
+
+/* ================= CLOSE GAME ================= */
+
+function closeGame(){
+
+    const overlay =
+        document.getElementById('gamePlayerOverlay');
+
+    const iframe =
+        document.getElementById('gameFrame');
+
+
+    if(overlay){
+
+        overlay.classList.remove('active');
+
+    }
+
+
+    if(iframe){
+
+        iframe.src = '';
+
+    }
+
+
+    document.body.style.overflow = '';
+
+}
+
+
+/* ================= ESCAPE KEY ================= */
+
+document.addEventListener(
+    'keydown',
+    function(event){
+
+        if(event.key === 'Escape'){
+
+            closeGame();
+
         }
 
-        // ===== FIXED PLAY GAME FUNCTION =====
-        function playGame(url, title) {
-            if (!url) {
-                alert('Game URL not found!');
-                return;
+    }
+);
+
+
+/* ================= CLICK OUTSIDE ================= */
+
+document
+    .getElementById('gamePlayerOverlay')
+    .addEventListener(
+        'click',
+        function(event){
+
+            if(event.target === this){
+
+                closeGame();
+
             }
-            
-            const iframe = document.getElementById('gameFrame');
-            const titleElement = document.getElementById('gameTitle');
-            
-            iframe.src = url;
-            titleElement.textContent = '🎮 Playing: ' + (title || 'Game');
-            document.getElementById('gamePlayerOverlay').classList.add('active');
-            document.body.style.overflow = 'hidden';
+
+        }
+    );
+
+
+/* ================= SEARCH ================= */
+
+let currentCategory = 'all';
+
+
+function filterGames(){
+
+    const search =
+        document
+        .getElementById('searchInput')
+        .value
+        .toLowerCase()
+        .trim();
+
+
+    const cards =
+        document.querySelectorAll('.game-card');
+
+
+    let visible = 0;
+
+
+    cards.forEach(function(card){
+
+        const name =
+            card.dataset.name.toLowerCase();
+
+        const category =
+            card.dataset.category;
+
+
+        const matchesSearch =
+            name.includes(search);
+
+        const matchesCategory =
+            currentCategory === 'all' ||
+            category === currentCategory;
+
+
+        if(matchesSearch && matchesCategory){
+
+            card.style.display = '';
+
+            visible++;
+
+        }else{
+
+            card.style.display = 'none';
+
         }
 
-        // ===== CLOSE GAME =====
-        function closeGame() {
-            document.getElementById('gamePlayerOverlay').classList.remove('active');
-            document.getElementById('gameFrame').src = '';
-            document.body.style.overflow = 'auto';
-        }
+    });
 
-        // ===== ESCAPE KEY =====
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') closeGame();
+
+    document
+        .getElementById('noResults')
+        .style.display =
+        visible === 0 ? 'block' : 'none';
+
+}
+
+
+/* ================= CATEGORY ================= */
+
+function setCategory(category,button){
+
+    currentCategory = category;
+
+
+    document
+        .querySelectorAll('.filters button')
+        .forEach(function(btn){
+
+            btn.classList.remove('active');
+
         });
 
-        // ===== CLOSE ON OVERLAY CLICK =====
-        document.getElementById('gamePlayerOverlay').addEventListener('click', function(e) {
-            if (e.target === this) closeGame();
-        });
 
-        // ===== SEARCH GAMES =====
-        function searchGames() {
-            const input = document.getElementById('searchInput').value.toLowerCase();
-            const cards = document.querySelectorAll('.game-card');
-            let count = 0;
-            
-            cards.forEach(card => {
-                const title = card.querySelector('h3')?.textContent?.toLowerCase() || '';
-                const desc = card.querySelector('.game-desc')?.textContent?.toLowerCase() || '';
-                
-                if (title.includes(input) || desc.includes(input)) {
-                    card.style.display = 'block';
-                    count++;
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-            
-            document.getElementById('gameCount').textContent = count;
-            document.getElementById('noGames').style.display = count === 0 ? 'block' : 'none';
-        }
+    button.classList.add('active');
 
-        // ===== FILTER GAMES =====
-        function filterGames(category, btn) {
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            
-            const cards = document.querySelectorAll('.game-card');
-            let count = 0;
-            
-            cards.forEach(card => {
-                const cardCategory = card.getAttribute('data-category');
-                if (category === 'all' || cardCategory === category) {
-                    card.style.display = 'block';
-                    count++;
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-            
-            document.getElementById('gameCount').textContent = count;
-            document.getElementById('noGames').style.display = count === 0 ? 'block' : 'none';
-        }
-    </script>
+
+    filterGames();
+
+}
+
+
+/* ================= DETAILS ================= */
+
+function showDetails(title){
+
+    alert(
+        title +
+        '\n\nGame details page coming soon.'
+    );
+
+}
+
+</script>
+
 </body>
 </html>
+```
