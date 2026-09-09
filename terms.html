@@ -6,37 +6,51 @@
     <title>Terms & Conditions - SyedGames</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        .policy-hero {
+        .page-hero {
             text-align: center;
-            padding: 80px 20px 40px;
-            background: linear-gradient(135deg, #1a0000, #0a0000);
-            border-bottom: 3px solid #cc0000;
+            padding: 100px 20px 60px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.85), rgba(10,0,0,0.9)),
+                        url('https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1920&h=400&fit=crop&crop=center') center/cover no-repeat;
+            border-bottom: 3px solid rgba(255, 0, 0, 0.3);
         }
-        .policy-hero h1 {
-            font-size: 48px;
+        .page-hero h1 {
+            font-size: 52px;
+            font-weight: 900;
         }
-        .policy-hero h1 span {
-            color: #cc0000;
-            text-shadow: 0 0 30px rgba(204, 0, 0, 0.4);
+        .page-hero h1 span {
+            color: #ff0000;
+            text-shadow: 0 0 40px rgba(255, 0, 0, 0.3);
         }
-        .policy-hero p {
+        .page-hero p {
             color: #aaa;
             max-width: 600px;
             margin: 10px auto 0;
+            font-size: 18px;
         }
         .policy-content {
             max-width: 900px;
             margin: 0 auto;
             padding: 60px 40px;
         }
+        .policy-content .last-updated {
+            color: #666;
+            font-size: 14px;
+            font-style: italic;
+            margin-bottom: 30px;
+            padding: 10px 20px;
+            background: #0a0a0a;
+            border-radius: 8px;
+            display: inline-block;
+            border-left: 3px solid #ff0000;
+        }
         .policy-content h2 {
-            color: #cc0000;
+            color: #ff0000;
             margin: 40px 0 15px;
             font-size: 26px;
-            border-left: 4px solid #cc0000;
+            border-left: 4px solid #ff0000;
             padding-left: 15px;
         }
-        .policy-content h2:first-child {
+        .policy-content h2:first-of-type {
             margin-top: 0;
         }
         .policy-content p {
@@ -49,20 +63,33 @@
             padding-left: 20px;
             line-height: 2;
         }
-        .policy-content .last-updated {
-            color: #666;
-            font-size: 14px;
-            font-style: italic;
-            margin-bottom: 30px;
+        .policy-content ul li {
+            margin-bottom: 5px;
+        }
+        .policy-content .highlight-box {
+            background: linear-gradient(145deg, #0a0a0a, #000000);
+            padding: 25px 30px;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+        @media (max-width: 768px) {
+            .page-hero h1 {
+                font-size: 36px;
+            }
+            .policy-content {
+                padding: 30px 20px;
+            }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">Syed<span>Games</span></div>
-        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-        <nav id="mainNav">
+        <div class="logo">
+            <a href="index.html">Syed<span>Games</span></a>
+        </div>
+        <nav>
             <a href="index.html">Home</a>
             <a href="games.html">Games</a>
             <a href="about.html">About</a>
@@ -70,45 +97,54 @@
             <a href="privacy.html">Privacy</a>
             <a href="terms.html" class="active">Terms</a>
         </nav>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     </header>
 
-    <section class="policy-hero">
+    <section class="page-hero">
         <h1>📜 <span>Terms</span> & Conditions</h1>
         <p>Please read these terms carefully before using our website.</p>
     </section>
 
     <div class="policy-content">
-        <p class="last-updated">📅 Last Updated: September 2026</p>
+        <div class="last-updated">📅 Last Updated: September 2026</div>
 
-        <p>Welcome to SyedGames. By using our website, you agree to the following terms and conditions.</p>
+        <p>Welcome to SyedGames. By using our website, you agree to the following terms and conditions. Please read them carefully.</p>
+
+        <div class="highlight-box">
+            <p><strong>⚠️ Important:</strong> By accessing this website, you accept these terms in full. If you disagree with any part, please do not use our site.</p>
+        </div>
 
         <h2>1. Acceptance of Terms</h2>
-        <p>By accessing this website, you accept these terms in full. If you disagree, please do not use our site.</p>
+        <p>By accessing this website, you accept these terms in full. If you disagree with any part, please do not use our site.</p>
 
         <h2>2. User Conduct</h2>
         <ul>
             <li>You must be at least 13 years old to use this site.</li>
             <li>You agree not to use the site for any illegal or harmful purposes.</li>
             <li>You will not attempt to hack, disrupt, or damage the site.</li>
+            <li>You will not upload malicious content or viruses.</li>
+            <li>You will respect other users and community guidelines.</li>
         </ul>
 
         <h2>3. Intellectual Property</h2>
         <ul>
-            <li>All content on this site (text, graphics, logos) is owned by SyedGames.</li>
+            <li>All content on this site (text, graphics, logos, design) is owned by SyedGames unless otherwise credited.</li>
             <li>You may not reproduce, distribute, or modify our content without permission.</li>
-            <li>Games are embedded from third-party platforms and belong to their respective creators.</li>
+            <li>Games on this site are embedded from third-party platforms like CrazyGames and GameFlare and belong to their respective creators.</li>
         </ul>
 
         <h2>4. Game Content</h2>
         <ul>
-            <li>Games on this site are embedded from platforms like CrazyGames and GameFlare.</li>
-            <li>We do not host or own these games. All credits go to their creators.</li>
+            <li>Games on this site are embedded from third-party platforms like CrazyGames and GameFlare.</li>
+            <li>We do not host or own these games. All credits go to their respective creators.</li>
+            <li>We are not responsible for the content, safety, or performance of embedded games.</li>
             <li>Users play games at their own risk.</li>
         </ul>
 
         <h2>5. Disclaimer</h2>
         <ul>
             <li>This website is provided "as is" without any warranties.</li>
+            <li>We make no guarantees about the accuracy, completeness, or reliability of any content.</li>
             <li>We are not responsible for any issues that may arise from using embedded games.</li>
             <li>Use of the site is at your own risk.</li>
         </ul>
@@ -116,35 +152,53 @@
         <h2>6. Limitation of Liability</h2>
         <ul>
             <li>We are not liable for any damages arising from your use of this site.</li>
-            <li>This includes data loss, system damage, or financial loss.</li>
+            <li>This includes but is not limited to: data loss, system damage, or financial loss.</li>
+            <li>We are not responsible for third-party content, including ads and embedded games.</li>
         </ul>
 
         <h2>7. Third-Party Links</h2>
         <ul>
-            <li>Our site may contain links to third-party websites.</li>
-            <li>We are not responsible for their content or practices.</li>
+            <li>Our site may contain links to third-party websites or services.</li>
+            <li>We are not responsible for the content, privacy policies, or practices of these sites.</li>
+            <li>You access third-party sites at your own risk.</li>
         </ul>
 
-        <h2>8. Changes to Terms</h2>
+        <h2>8. Termination</h2>
+        <ul>
+            <li>We reserve the right to terminate or suspend access to our site at any time, without notice.</li>
+            <li>This may happen if you violate these terms or engage in harmful behavior.</li>
+        </ul>
+
+        <h2>9. Changes to Terms</h2>
         <ul>
             <li>We may update these terms at any time without notice.</li>
             <li>It is your responsibility to check this page periodically.</li>
+            <li>Continued use of the site after changes means you accept the new terms.</li>
         </ul>
 
-        <h2>9. Contact</h2>
-        <p>If you have any questions, please <a href="contact.html" style="color:#cc0000;">contact us</a>.</p>
+        <h2>10. Governing Law</h2>
+        <ul>
+            <li>These terms are governed by the laws of your jurisdiction.</li>
+            <li>Any disputes will be resolved in accordance with applicable laws.</li>
+        </ul>
 
-        <p style="margin-top: 40px; color: #666; font-size: 13px;">By continuing to use our site, you agree to these Terms & Conditions.</p>
+        <h2>11. Contact</h2>
+        <p>If you have any questions about these Terms & Conditions, please <a href="contact.html" style="color:#ff0000;">contact us</a>.</p>
+
+        <div class="highlight-box" style="margin-top:40px;">
+            <p style="color:#666; font-size:13px; text-align:center;">By continuing to use our site, you agree to these Terms & Conditions.</p>
+        </div>
     </div>
 
     <footer>
         <div class="footer-content">
             <div>
                 <h4>🎮 SyedGames</h4>
-                <p>Your ultimate gaming hub for free games, reviews, and news.</p>
+                <p>Your premium destination for free online games and gaming community.</p>
             </div>
             <div>
                 <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
                 <a href="games.html">Games</a>
                 <a href="about.html">About</a>
                 <a href="contact.html">Contact</a>
@@ -166,7 +220,7 @@
 
     <script>
         function toggleMenu() {
-            document.getElementById('mainNav').classList.toggle('open');
+            document.querySelector('nav').classList.toggle('open');
         }
     </script>
 </body>
